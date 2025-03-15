@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FeatureCard } from '../ui-custom/FeatureCard';
 import { Button } from '../ui-custom/Button';
+import { staggerContainer } from '@/lib/animation-utils';
 
 export const FeaturesSection: React.FC = () => {
   const features = [
@@ -68,19 +70,47 @@ export const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section id="features" className="py-20 bg-gray-50 dark:bg-navy-900/50">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="mb-2 inline-block">
+    <section id="features" className="py-20 bg-gray-50 dark:bg-navy-900/50 relative overflow-hidden">
+      {/* Particle background */}
+      <div className="absolute inset-0 opacity-30">
+        <ParticleField color="#0A84FF" density={30} speed={0.2} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={staggerContainer(0.1, 0.1)}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-2 inline-block"
+          >
             <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-600 ring-1 ring-inset ring-blue-600/20 dark:bg-blue-900/30 dark:text-blue-300">
               Features
             </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Everything you need to create stunning videos</h2>
-          <p className="text-xl text-muted-foreground">
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl sm:text-4xl font-bold mb-4"
+          >
+            Everything you need to create stunning videos
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl text-muted-foreground"
+          >
             Powerful tools that make professional video editing accessible to everyone.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
@@ -91,16 +121,30 @@ export const FeaturesSection: React.FC = () => {
               description={feature.description}
               variant="glass"
               className="h-full"
+              delay={index}
             />
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <Button variant="default" size="lg">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="mt-16 text-center"
+        >
+          <Button 
+            variant="default" 
+            size="lg"
+            className="animate-bounce-subtle"
+          >
             Explore All Features
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
+
+// Import the ParticleField component
+import { ParticleField } from '../effects/ParticleField';

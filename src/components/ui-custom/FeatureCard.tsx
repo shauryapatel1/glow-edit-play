@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { cn } from "@/lib/utils";
 
 interface FeatureCardProps {
@@ -10,6 +11,7 @@ interface FeatureCardProps {
   iconClassName?: string;
   variant?: 'default' | 'glass' | 'bordered';
   hasAnimation?: boolean;
+  delay?: number;
 }
 
 export const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -20,6 +22,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   iconClassName,
   variant = 'default',
   hasAnimation = true,
+  delay = 0,
 }) => {
   const variants = {
     default: "bg-white dark:bg-navy-800/90 shadow-md hover:shadow-lg",
@@ -34,15 +37,27 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   };
 
   return (
-    <div 
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration: 0.6, 
+        delay: delay * 0.1,
+        type: "spring",
+        stiffness: 50 
+      }}
+      whileHover={hasAnimation ? { y: -8, transition: { duration: 0.3 } } : undefined}
       className={cn(
         "rounded-xl p-6 transition-all duration-300",
         variants[variant],
-        hasAnimation && "hover:-translate-y-1",
         className
       )}
     >
-      <div 
+      <motion.div 
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: delay * 0.1 + 0.2, duration: 0.4 }}
         className={cn(
           "w-12 h-12 rounded-lg flex items-center justify-center mb-4",
           iconVariants[variant],
@@ -50,9 +65,23 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
         )}
       >
         {icon}
-      </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
-    </div>
+      </motion.div>
+      <motion.h3 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: delay * 0.1 + 0.3, duration: 0.4 }}
+        className="text-xl font-semibold mb-2"
+      >
+        {title}
+      </motion.h3>
+      <motion.p 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: delay * 0.1 + 0.4, duration: 0.4 }}
+        className="text-muted-foreground"
+      >
+        {description}
+      </motion.p>
+    </motion.div>
   );
 };
