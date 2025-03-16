@@ -63,7 +63,7 @@ const Index = () => {
             {/* Hero Section with Floating Objects */}
             <HeroWithObjects 
               title="Transform Your Videos with AI-Powered Editing"
-              subtitle="Create professional-grade videos in minutes with our intuitive browser-based platform. No installation required."
+              subtitle="Make your short videos pop with AI-powered editing"
               ctaText="Start Free Trial"
               secondaryCtaText="Watch Demo"
             />
