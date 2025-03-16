@@ -56,5 +56,3 @@ export const PixelButton = React.forwardRef<HTMLButtonElement, PixelButtonProps>
 );
 
 PixelButton.displayName = "PixelButton";
-
-export { PixelButton };
