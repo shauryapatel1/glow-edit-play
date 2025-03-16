@@ -63,66 +63,42 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// GlowUp custom colors
-				'blue': {
-					'50': '#f0f7ff',
-					'100': '#e0effe',
-					'200': '#bae0fd',
-					'300': '#7cc7fc',
-					'400': '#36aaf8',
-					'500': '#0A84FF', // primary blue
-					'600': '#026ee0',
-					'700': '#0258b6',
-					'800': '#064a95',
-					'900': '#0c407a',
+				// Sunset colors
+				'sunset': {
+					'50': '#FFF7ED',
+					'100': '#FEF3C7',
+					'200': '#FEE9AE',
+					'300': '#FEC6A1',
+					'400': '#F97316', // Primary orange
+					'500': '#EA384C', // Sunset red
+					'600': '#D946EF', // Sunset purple
+					'700': '#C14E63',
+					'800': '#92400E',
+					'900': '#78350F',
 				},
-				'teal': {
-					'50': '#f0fdfd',
-					'100': '#ccfcff',
-					'200': '#99f6ff',
-					'300': '#5eeafd',
-					'400': '#00C2FF', // secondary teal
-					'500': '#06aee6',
-					'600': '#088fc0',
-					'700': '#0d729c',
-					'800': '#146181',
-					'900': '#16516b',
+				'sunset-yellow': {
+					'50': '#FEFCE8',
+					'100': '#FEF9C3',
+					'200': '#FEF08A',
+					'300': '#FDE047',
+					'400': '#FACC15',
+					'500': '#EAB308',
+					'600': '#CA8A04',
+					'700': '#A16207',
+					'800': '#854D0E',
+					'900': '#713F12',
 				},
-				'purple': {
-					'50': '#f5f3ff',
-					'100': '#ede8ff',
-					'200': '#dcd5ff',
-					'300': '#c3b5ff',
-					'400': '#6C5CE7', // accent purple
-					'500': '#6246ea',
-					'600': '#5735d9',
-					'700': '#4828b9',
-					'800': '#3b2299',
-					'900': '#321d7d',
-				},
-				'orange': {
-					'50': '#fff8ed',
-					'100': '#ffefd4',
-					'200': '#ffd9a8',
-					'300': '#ffbf73',
-					'400': '#FF9F43', // accent orange
-					'500': '#fb8215',
-					'600': '#ed6c04',
-					'700': '#c35205',
-					'800': '#9a420c',
-					'900': '#7d390e',
-				},
-				'navy': {
-					'50': '#f0f4fa',
-					'100': '#dbe4f3',
-					'200': '#bccce6',
-					'300': '#92aad4',
-					'400': '#648bc0',
-					'500': '#4572ab',
-					'600': '#355c8d',
-					'700': '#2d4a72',
-					'800': '#0F172A', // dark navy (instead of black)
-					'900': '#101928',
+				'sunset-pink': {
+					'50': '#FDF2F8',
+					'100': '#FCE7F3',
+					'200': '#FBCFE8',
+					'300': '#F9A8D4',
+					'400': '#F472B6',
+					'500': '#EC4899',
+					'600': '#DB2777',
+					'700': '#BE185D',
+					'800': '#9D174D',
+					'900': '#831843',
 				},
 			},
 			borderRadius: {
@@ -176,8 +152,14 @@ export default {
 					'50%': { opacity: '0.8' }
 				},
 				'glow': {
-					'0%, 100%': { boxShadow: '0 0 15px rgba(10, 132, 255, 0.5)' },
-					'50%': { boxShadow: '0 0 30px rgba(10, 132, 255, 0.8)' }
+					'0%, 100%': { boxShadow: '0 0 15px rgba(249, 115, 22, 0.5)' },
+					'50%': { boxShadow: '0 0 30px rgba(249, 115, 22, 0.8)' }
+				},
+				'pixel-shift': {
+					'0%, 100%': { transform: 'translate(0, 0)' },
+					'25%': { transform: 'translate(2px, 2px)' },
+					'50%': { transform: 'translate(0, 2px)' },
+					'75%': { transform: 'translate(2px, 0)' }
 				},
 			},
 			animation: {
@@ -195,20 +177,25 @@ export default {
 				'glow': 'glow 3s ease-in-out infinite',
 				'enter': 'fade-in 0.5s ease-out, scale-in 0.3s ease-out',
 				'exit': 'fade-out 0.5s ease-out, scale-out 0.3s ease-out',
+				'pixel-shift': 'pixel-shift 0.5s steps(4) infinite',
 			},
 			fontFamily: {
-				sans: ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif'],
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				pixel: ['"Press Start 2P"', 'cursive'],
+				mono: ['"VT323"', 'monospace'],
 			},
 			boxShadow: {
-				'glow-sm': '0 0 10px rgba(10, 132, 255, 0.2)',
-				'glow-md': '0 0 20px rgba(10, 132, 255, 0.3)',
-				'glow-lg': '0 0 30px rgba(10, 132, 255, 0.4)',
+				'glow-sm': '0 0 10px rgba(249, 115, 22, 0.2)',
+				'glow-md': '0 0 20px rgba(249, 115, 22, 0.3)',
+				'glow-lg': '0 0 30px rgba(249, 115, 22, 0.4)',
 				'glass': '0 8px 32px rgba(0, 0, 0, 0.1)',
 				'glass-sm': '0 4px 16px rgba(0, 0, 0, 0.08)',
+				'pixel': '4px 4px 0 0 rgba(249, 115, 22, 0.8)',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'grid-pattern': 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'20\' height=\'20\' viewBox=\'0 0 20 20\'%3E%3Cpath fill=\'%239C92AC\' fill-opacity=\'0.05\' d=\'M1 0h2v20H1V0zm0 0h20v2H0V0z\'/%3E%3C/svg%3E")',
+				'sunset-gradient': 'linear-gradient(to right, #F97316, #EA384C, #D946EF)',
 			},
 			backdropFilter: {
 				'none': 'none',
