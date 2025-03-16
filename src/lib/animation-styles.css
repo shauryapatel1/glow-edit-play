@@ -46,6 +46,25 @@
   }
 }
 
+/* New 3D floating animation */
+@keyframes float-3d {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(0) translateX(10px) rotate(0);
+  }
+  75% {
+    transform: translateY(10px) translateX(5px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -64,6 +83,11 @@
 
 .animate-bounce-subtle {
   animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* New animation class */
+.animate-float-3d {
+  animation: float-3d 10s ease-in-out infinite;
 }
 
 .transition-transform {

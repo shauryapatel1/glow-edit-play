@@ -54,3 +54,50 @@ export const scaleIn = (delay: number = 0) => {
     },
   };
 };
+
+// New animation variants
+export const floatAnimation = (amplitude: number = 20, duration: number = 3, delay: number = 0) => {
+  return {
+    initial: { y: 0 },
+    animate: {
+      y: [0, -amplitude, 0],
+      transition: {
+        duration,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "mirror",
+        delay,
+      }
+    }
+  };
+};
+
+export const rotateAnimation = (duration: number = 10, delay: number = 0) => {
+  return {
+    initial: { rotate: 0 },
+    animate: {
+      rotate: 360,
+      transition: {
+        duration,
+        ease: "linear",
+        repeat: Infinity,
+        delay,
+      }
+    }
+  };
+};
+
+export const pulseAnimation = (scale: number = 1.05, duration: number = 2, delay: number = 0) => {
+  return {
+    initial: { scale: 1 },
+    animate: {
+      scale: [1, scale, 1],
+      transition: {
+        duration,
+        ease: "easeInOut",
+        repeat: Infinity,
+        delay,
+      }
+    }
+  };
+};

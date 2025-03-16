@@ -12,6 +12,8 @@ import { VideoPreview } from '@/components/ui-custom/VideoPreview';
 import { Button } from '@/components/ui-custom/Button';
 import { ParticleField } from '@/components/effects/ParticleField';
 import { GlowingOrb } from '@/components/effects/GlowingOrb';
+import { FloatingObjects } from '@/components/effects/FloatingObjects';
+import { floatAnimation, rotateAnimation } from '@/lib/animation-utils';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -61,12 +63,25 @@ const Index = () => {
           <Navbar />
           
           <main className="flex-1">
-            {/* Hero Section */}
+            {/* Hero Section with Floating Objects */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
+              className="relative"
             >
+              {/* Add FloatingObjects component in hero section */}
+              <div className="absolute inset-0 overflow-hidden">
+                <FloatingObjects 
+                  objectCount={10}
+                  colors={["#0A84FF", "#30CF5D", "#6C5CE7"]}
+                  shapes={['sphere', 'torus']}
+                  rotationSpeed={0.002}
+                  floatSpeed={0.3}
+                  className="opacity-40"
+                />
+              </div>
+              
               <HeroSection 
                 title="Transform Your Videos with AI-Powered Editing"
                 subtitle="Create professional-grade videos in minutes with our intuitive browser-based platform. No installation required."
@@ -233,8 +248,24 @@ const Index = () => {
             {/* Features Section */}
             <FeaturesSection />
             
-            {/* How It Works Section */}
-            <HowItWorksSection />
+            {/* How It Works Section with Floating Objects */}
+            <div className="relative overflow-hidden">
+              {/* Add FloatingObjects in How It Works section */}
+              <div className="absolute inset-0 pointer-events-none">
+                <FloatingObjects 
+                  objectCount={8}
+                  colors={["#FF2D55", "#FFCC00", "#6C5CE7"]}
+                  shapes={['cube', 'cone']}
+                  rotationSpeed={0.001}
+                  floatSpeed={0.2}
+                  minSize={0.5}
+                  maxSize={1.2}
+                  className="opacity-30"
+                />
+              </div>
+              
+              <HowItWorksSection />
+            </div>
             
             {/* Testimonials Section */}
             <TestimonialsSection />
