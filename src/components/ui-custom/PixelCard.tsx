@@ -25,9 +25,9 @@ export const PixelCard: React.FC<PixelCardProps> = ({
   delay = 0,
 }) => {
   const variants = {
-    orange: "bg-white border-sunset-400 shadow-sunset-400/60",
-    purple: "bg-white border-sunset-pink-500 shadow-sunset-pink-500/60",
-    yellow: "bg-white border-sunset-yellow-400 shadow-sunset-yellow-400/60"
+    orange: "bg-white border-sunset-400 shadow-sunset-400/60 dark:bg-navy-800/90 dark:border-sunset-400",
+    purple: "bg-white border-sunset-pink-500 shadow-sunset-pink-500/60 dark:bg-navy-800/90 dark:border-sunset-pink-500",
+    yellow: "bg-white border-sunset-yellow-400 shadow-sunset-yellow-400/60 dark:bg-navy-800/90 dark:border-sunset-yellow-400"
   };
 
   const iconVariants = {

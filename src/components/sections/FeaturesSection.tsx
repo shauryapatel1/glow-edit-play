@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FeatureCard } from '../ui-custom/FeatureCard';
-import { Button } from '../ui-custom/Button';
-import { staggerContainer } from '@/lib/animation-utils';
+import { PixelCard } from '../ui-custom/PixelCard';
+import { PixelButton } from '../ui-custom/PixelButton';
+import { staggerContainer, pixelFadeIn } from '@/lib/animation-utils';
+import { ParticleField } from '../effects/ParticleField';
 
 export const FeaturesSection: React.FC = () => {
   const features = [
@@ -70,10 +71,15 @@ export const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section id="features" className="py-20 bg-gray-50 dark:bg-navy-900/50 relative overflow-hidden">
+    <section id="features" className="py-20 bg-sunset-50/50 dark:bg-navy-900/50 relative overflow-hidden">
+      {/* Pixel art background elements */}
+      <div className="absolute top-10 left-10 w-6 h-6 bg-sunset-400 animate-pixel-shift" />
+      <div className="absolute bottom-20 right-20 w-8 h-8 bg-sunset-pink-500 animate-pixel-shift" style={{ animationDelay: '0.2s' }} />
+      <div className="absolute top-1/2 right-10 w-4 h-4 bg-sunset-yellow-400 animate-pixel-shift" style={{ animationDelay: '0.4s' }} />
+      
       {/* Particle background */}
       <div className="absolute inset-0 opacity-30">
-        <ParticleField color="#0A84FF" density={30} speed={0.2} />
+        <ParticleField color="#EA384C" density={20} speed={0.1} />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -85,27 +91,21 @@ export const FeaturesSection: React.FC = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-2 inline-block"
+            variants={pixelFadeIn(0)}
+            className="mb-4 inline-block"
           >
-            <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-600 ring-1 ring-inset ring-blue-600/20 dark:bg-blue-900/30 dark:text-blue-300">
+            <span className="inline-flex items-center rounded-md px-3 py-1 text-sm font-pixel text-sunset-500 bg-sunset-500/10 border-2 border-sunset-500 shadow-[2px_2px_0px_0px] shadow-sunset-500/60">
               Features
             </span>
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-bold mb-4"
+            variants={pixelFadeIn(0.1)}
+            className="text-3xl sm:text-4xl font-pixel mb-4 bg-sunset-gradient bg-clip-text text-transparent"
           >
             Everything you need to create stunning videos
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            variants={pixelFadeIn(0.2)}
             className="text-xl text-muted-foreground"
           >
             Powerful tools that make professional video editing accessible to everyone.
@@ -114,14 +114,14 @@ export const FeaturesSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <FeatureCard
+            <PixelCard
               key={index}
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
-              variant="glass"
-              className="h-full"
+              variant={index % 3 === 0 ? 'orange' : index % 3 === 1 ? 'purple' : 'yellow'}
               delay={index}
+              hasAnimation={true}
             />
           ))}
         </div>
@@ -133,18 +133,15 @@ export const FeaturesSection: React.FC = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <Button 
-            variant="default" 
+          <PixelButton 
+            variant="sunset"
             size="lg"
-            className="animate-bounce-subtle"
+            className="animate-glow"
           >
             Explore All Features
-          </Button>
+          </PixelButton>
         </motion.div>
       </div>
     </section>
   );
 };
-
-// Import the ParticleField component
-import { ParticleField } from '../effects/ParticleField';
