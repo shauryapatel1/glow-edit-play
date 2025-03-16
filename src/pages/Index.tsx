@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
@@ -62,8 +61,8 @@ const Index = () => {
           <main className="flex-1">
             {/* Hero Section with Floating Objects */}
             <HeroWithObjects 
-              title="Transform Your Videos with AI-Powered Editing"
-              subtitle="Make your short videos pop with AI-powered editing"
+              title="Your Gateway to Viral Video Stardom"
+              subtitle="Create scroll-stopping content engineered to go viral on TikTok, Instagram Reels, and beyond"
               ctaText="Start Free Trial"
               secondaryCtaText="Watch Demo"
             />

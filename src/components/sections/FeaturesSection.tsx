@@ -11,62 +11,80 @@ export const FeaturesSection: React.FC = () => {
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+          <path d="M12 8v-2"/>
+          <path d="M12 18v-2"/>
+          <path d="M8 12H6"/>
+          <path d="M18 12h-2"/>
+          <path d="m15 9-1.5 1.5"/>
+          <path d="m9 15-1.5 1.5"/>
+          <path d="m15 15-1.5-1.5"/>
+          <path d="m9 9-1.5-1.5"/>
         </svg>
       ),
-      title: "AI Enhancement",
-      description: "Automatically enhance videos with intelligent scene detection, smart cutting, and style transfer."
+      title: "AI-Powered Trend Integration",
+      description: "Our AI continuously scans social media for the hottest trends, recommending engaging effects and filters to keep your content ahead of the curve."
     },
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="2" y1="12" x2="22" y2="12"></line>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+          <path d="M12 9v4"/>
+          <path d="M12 17h.01"/>
         </svg>
       ),
-      title: "Real-time Collaboration",
-      description: "Edit videos with your team in real-time with synchronized changes and feedback tools."
+      title: "Dynamic Motion Graphics",
+      description: "Elevate your videos with professional-grade motion graphics, animated text, creative shapes, and dynamic particle bursts that bring your personality to life."
     },
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-          <line x1="8" y1="21" x2="16" y2="21"></line>
-          <line x1="12" y1="17" x2="12" y2="21"></line>
+          <path d="M11 12H3"/>
+          <path d="M16 6H3"/>
+          <path d="M16 18H3"/>
+          <path d="M19 10a2 2 0 1 0 4 0 2 2 0 1 0-4 0Z"/>
+          <path d="M21 6a2 2 0 1 0 0-4 2 2 0 1 0 0 4Z"/>
+          <path d="M21 22a2 2 0 1 0 0-4 2 2 0 1 0 0 4Z"/>
         </svg>
       ),
-      title: "GPU Acceleration",
-      description: "Leverage powerful GPU capabilities for fast rendering and real-time effects preview."
+      title: "Smart Editing",
+      description: "Our smart cutting feature pinpoints the perfect moments to trim your footage, ensuring every second is optimized for maximum impact and engagement."
     },
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-          <circle cx="8.5" cy="8.5" r="1.5"></circle>
-          <polyline points="21 15 16 10 5 21"></polyline>
+          <circle cx="18" cy="18" r="3"/>
+          <circle cx="6" cy="6" r="3"/>
+          <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
+          <path d="M11 18H8a2 2 0 0 1-2-2V9"/>
         </svg>
       ),
-      title: "Video Library",
-      description: "Organize your videos with smart search, filters, and version history for easy access."
+      title: "Interactive Collaboration",
+      description: "Collaborate live with your team to brainstorm, edit, and refine your content within a streamlined workspace that makes creativity a collective adventure."
     },
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          <rect width="3" height="8" x="13" y="2" rx="1.5"/>
+          <path d="M19 8V7a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v1"/>
+          <rect width="20" height="14" x="2" y="8" rx="2"/>
+          <path d="M12 12h.01"/>
         </svg>
       ),
-      title: "Advanced Analytics",
-      description: "Gain insights into viewer engagement, performance metrics, and audience behavior."
+      title: "Real-time Engagement Metrics",
+      description: "View performance analytics, success stories, and trending data in real-time with our immersive, interactive dashboard."
     },
     {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          <path d="M17 12h-2l3.2-7.5"/>
+          <path d="M10 12H8l-3.2-7.5"/>
+          <path d="M3 16h18"/>
+          <path d="M18 18H6l-1 4h14l-1-4z"/>
         </svg>
       ),
-      title: "Premium Effects",
-      description: "Access a wide range of professional-grade effects, transitions, and filters."
+      title: "Viral-Ready Templates",
+      description: "Access a library of pre-designed templates proven to perform well on social media platforms, customizable to match your unique style."
     }
   ];
 
@@ -102,13 +120,13 @@ export const FeaturesSection: React.FC = () => {
             variants={pixelFadeIn(0.1)}
             className="text-3xl sm:text-4xl font-pixel mb-4 bg-sunset-gradient bg-clip-text text-transparent"
           >
-            Everything you need to create stunning videos
+            Create Scroll-Stopping Content That Goes Viral
           </motion.h2>
           <motion.p 
             variants={pixelFadeIn(0.2)}
             className="text-xl text-muted-foreground"
           >
-            Powerful tools that make professional video editing accessible to everyone.
+            We fuse AI-driven editing with interactive trend insights and collaborative tools to give your videos that extra edge.
           </motion.p>
         </motion.div>
 

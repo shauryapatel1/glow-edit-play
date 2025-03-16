@@ -40,42 +40,44 @@ export const VideoEditorPreview: React.FC = () => {
                 <div className="w-3 h-3 rounded-full bg-sunset-500 animate-pulse-slow"></div>
                 <div className="w-3 h-3 rounded-full bg-sunset-yellow-400 animate-pulse-slow" style={{ animationDelay: "0.2s" }}></div>
                 <div className="w-3 h-3 rounded-full bg-sunset-pink-500 animate-pulse-slow" style={{ animationDelay: "0.4s" }}></div>
-                <div className="ml-4 text-sunset-400 text-sm font-mono">GlowUp Editor - My Awesome Video.mp4</div>
+                <div className="ml-4 text-sunset-400 text-sm font-mono">GlowUp Viral Editor - TikTok_Challenge_Final.mp4</div>
               </div>
               
               <div className="flex space-x-3">
                 <PixelButton variant="ghost" size="sm">Save</PixelButton>
-                <PixelButton variant="purple" size="sm">Export</PixelButton>
+                <PixelButton variant="purple" size="sm">Export for TikTok</PixelButton>
               </div>
             </div>
             
             {/* Editor Content */}
             <div className="grid grid-cols-4 bg-sunset-500/5 backdrop-blur-lg">
-              {/* Left Sidebar - Assets */}
+              {/* Left Sidebar - Assets & Trends */}
               <div className="col-span-1 bg-sunset-400/5 border-r border-sunset-400/10 p-4">
-                <div className="text-sunset-400 text-sm font-pixel mb-3">Assets</div>
+                <div className="text-sunset-400 text-sm font-pixel mb-3">Trending Now</div>
                 <div className="space-y-2">
-                  {[1, 2, 3].map((item) => (
+                  {['Pixel Transition', 'Glitch Text', 'Duotone Filter'].map((item, index) => (
                     <motion.div 
-                      key={item}
+                      key={index}
                       whileHover={{ x: 5, transition: { duration: 0.2 } }}
                       className="glass-sm rounded-md p-2 flex items-center border border-sunset-400/20"
                     >
-                      <div className="w-8 h-8 bg-sunset-400/20 rounded-md mr-2"></div>
-                      <div className="text-xs text-sunset-400 font-mono">Video {item}</div>
+                      <div className="w-8 h-8 bg-sunset-400/20 rounded-md mr-2 flex items-center justify-center text-xs font-bold text-sunset-400">
+                        #{index + 1}
+                      </div>
+                      <div className="text-xs text-sunset-400 font-mono">{item}</div>
                     </motion.div>
                   ))}
                 </div>
                 
-                <div className="text-sunset-400 text-sm font-pixel mt-4 mb-3">Effects</div>
+                <div className="text-sunset-400 text-sm font-pixel mt-4 mb-3">Viral Effects</div>
                 <div className="grid grid-cols-2 gap-2">
-                  {[1, 2, 3, 4].map((item) => (
+                  {['Neon', 'Retro', 'Glitch', 'Zoom'].map((item, index) => (
                     <motion.div 
-                      key={item}
+                      key={index}
                       whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                       className="glass-sm rounded-md p-2 flex items-center justify-center border border-sunset-400/20"
                     >
-                      <div className="text-xs text-sunset-400 font-mono">Effect {item}</div>
+                      <div className="text-xs text-sunset-400 font-mono">{item}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -90,6 +92,14 @@ export const VideoEditorPreview: React.FC = () => {
                     className="w-full h-full"
                     overlayText=""
                   />
+                  
+                  {/* Trend Analysis Overlay */}
+                  <div className="absolute top-2 right-2 bg-sunset-400/20 backdrop-blur-sm p-2 rounded-md border border-sunset-400/50 text-white text-xs font-mono">
+                    <div className="flex items-center">
+                      <span className="text-sunset-400 mr-2">Trend Match:</span>
+                      <span className="font-bold">98%</span>
+                    </div>
+                  </div>
                   
                   {/* Video Controls */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 flex items-center justify-between">
@@ -135,20 +145,32 @@ export const VideoEditorPreview: React.FC = () => {
                   </div>
                 </div>
                 
-                {/* Timeline */}
+                {/* Timeline with Collaboration */}
                 <div className="glass-sm rounded-lg p-3 border border-sunset-400/20">
-                  <div className="h-8 flex items-center mb-2">
-                    <div className="text-sunset-400 text-xs font-pixel mr-2">Tracks</div>
-                    <div className="flex-1 h-0.5 bg-sunset-400/20"></div>
+                  <div className="h-8 flex items-center mb-2 justify-between">
+                    <div className="text-sunset-400 text-xs font-pixel">Timeline</div>
+                    <div className="flex items-center space-x-2">
+                      <div className="text-sunset-400 text-xs">Collaborators:</div>
+                      <div className="flex -space-x-2">
+                        {[1, 2, 3].map((user) => (
+                          <div key={user} className="w-6 h-6 rounded-full bg-sunset-400/30 border border-sunset-400 text-xs flex items-center justify-center text-white">
+                            {user}
+                          </div>
+                        ))}
+                        <div className="w-6 h-6 rounded-full bg-sunset-pink-400/30 border border-sunset-pink-400 text-xs flex items-center justify-center text-white">
+                          +2
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="space-y-2">
-                    {['Video', 'Audio', 'Effects'].map((track) => (
+                    {['Video', 'Audio', 'Effects', 'Text'].map((track, index) => (
                       <div key={track} className="flex">
                         <div className="w-16 text-sunset-400 text-xs font-mono">{track}</div>
                         <div className="flex-1 h-6 bg-sunset-400/10 rounded-md relative">
                           <motion.div 
                             whileHover={{ scale: 1.02, x: 2 }}
-                            className="absolute top-0 left-4 bottom-0 right-4 bg-sunset-400/30 rounded-sm"
+                            className={`absolute top-0 ${index === 3 ? 'left-20 right-20 bg-sunset-pink-400/30' : 'left-4 right-4 bg-sunset-400/30'} bottom-0 rounded-sm`}
                           ></motion.div>
                         </div>
                       </div>
