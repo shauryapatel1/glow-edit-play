@@ -25,9 +25,10 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
 
   return (
     <div className={cn(
-      "relative rounded-xl overflow-hidden border-2 border-sunset-400/50 shadow-[4px_4px_0px_0px] shadow-sunset-400/20",
+      "relative rounded-xl overflow-hidden border-2",
       aspectRatioClasses[aspectRatio],
-      glowEffect && "shadow-sunset-400/20 dark:shadow-sunset-400/10",
+      glowEffect ? "border-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.5)]" : "border-[#1E1E1E]",
+      "before:absolute before:inset-0 before:bg-[#121212]/30 before:z-10",
       className
     )}>
       {/* Video Preview Image */}
@@ -37,8 +38,8 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
         className="w-full h-full object-cover"
       />
       
-      {/* Simple Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-800/70 to-transparent opacity-80 flex items-end">
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/90 via-transparent to-[#121212]/30 z-20 opacity-90 flex items-end">
         {overlayText && (
           <div className="p-6 text-white">
             <p className="font-pixel text-lg">{overlayText}</p>
@@ -46,12 +47,18 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
         )}
       </div>
       
-      {/* Play Button */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full flex items-center justify-center border-2 border-sunset-400/60 bg-sunset-400/10 shadow-[2px_2px_0px_0px] shadow-sunset-400/30">
-          <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-sunset-400 border-b-[8px] border-b-transparent ml-1"></div>
+      {/* Play Button with Neon Effect */}
+      <div className="absolute inset-0 flex items-center justify-center z-30">
+        <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#121212]/50 border-2 border-[#FF3366] shadow-[0_0_15px_rgba(255,51,102,0.6)] group-hover:shadow-[0_0_20px_rgba(255,51,102,0.8)] transition-all duration-300">
+          <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-[#FF3366] border-b-[8px] border-b-transparent ml-1"></div>
         </div>
       </div>
+      
+      {/* Neon Corner Accents */}
+      <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#76FF03] z-30"></div>
+      <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#76FF03] z-30"></div>
+      <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#76FF03] z-30"></div>
+      <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#76FF03] z-30"></div>
     </div>
   );
 };
