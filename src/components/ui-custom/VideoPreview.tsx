@@ -27,7 +27,7 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
     <div className={cn(
       "relative rounded-xl overflow-hidden border-2 group transition-all duration-300",
       aspectRatioClasses[aspectRatio],
-      glowEffect ? "border-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.5)] hover:shadow-[0_0_20px_rgba(0,229,255,0.8)]" : "border-[#1E1E1E]",
+      glowEffect ? "border-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.5)] hover:shadow-[0_0_25px_rgba(0,229,255,0.8)]" : "border-[#1E1E1E]",
       "before:absolute before:inset-0 before:bg-[#121212]/30 before:z-10",
       className
     )}>

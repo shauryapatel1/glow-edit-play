@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from "@/lib/utils";
 
 interface PixelButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline' | 'ghost' | 'sunset' | 'purple';
+  variant?: 'default' | 'outline' | 'ghost' | 'sunset' | 'purple' | 'neon' | 'neon-magenta' | 'neon-green';
   size?: 'default' | 'sm' | 'lg' | 'wide';
   withAnimation?: boolean;
   children: React.ReactNode;
@@ -21,11 +21,14 @@ export const PixelButton = React.forwardRef<HTMLButtonElement, PixelButtonProps>
     const baseClasses = "font-pixel inline-flex items-center justify-center transition-all duration-100 border-2 shadow-[4px_4px_0px_0px] active:translate-y-1 active:translate-x-1 active:shadow-[2px_2px_0px_0px]";
     
     const variantClasses = {
-      default: "bg-sunset-400 text-white border-sunset-500 shadow-sunset-500/60 hover:bg-sunset-500",
-      outline: "bg-transparent text-sunset-400 border-sunset-400 shadow-sunset-400/60 hover:bg-sunset-400/10",
-      ghost: "bg-transparent text-sunset-400 border-transparent shadow-transparent hover:bg-sunset-400/10 hover:border-sunset-400/50 hover:shadow-sunset-400/30",
+      default: "bg-primary text-white border-primary shadow-primary/60 hover:bg-primary/90",
+      outline: "bg-transparent text-primary border-primary shadow-primary/60 hover:bg-primary/10",
+      ghost: "bg-transparent text-primary border-transparent shadow-transparent hover:bg-primary/10 hover:border-primary/50 hover:shadow-primary/30",
       sunset: "bg-gradient-to-r from-sunset-400 via-sunset-500 to-sunset-600 text-white border-sunset-600 shadow-sunset-600/60",
       purple: "bg-sunset-pink-500 text-white border-sunset-pink-600 shadow-sunset-pink-600/60 hover:bg-sunset-pink-600",
+      neon: "bg-[#121212] text-[#00E5FF] border-[#00E5FF] shadow-[#00E5FF]/60 hover:bg-[#121212]/80 animate-[neonPulse_2s_infinite]",
+      "neon-magenta": "bg-[#121212] text-[#FF3366] border-[#FF3366] shadow-[#FF3366]/60 hover:bg-[#121212]/80",
+      "neon-green": "bg-[#121212] text-[#76FF03] border-[#76FF03] shadow-[#76FF03]/60 hover:bg-[#121212]/80"
     };
     
     const sizeClasses = {

@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from "@/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline' | 'ghost' | 'link' | 'secondary' | 'accent' | 'glass' | 'neon';
+  variant?: 'default' | 'outline' | 'ghost' | 'link' | 'secondary' | 'accent' | 'glass' | 'neon' | 'neon-magenta' | 'neon-green';
   size?: 'default' | 'sm' | 'lg' | 'icon' | 'wide';
   asChild?: boolean;
   withRing?: boolean;
@@ -24,14 +24,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-md focus-visible:outline-none disabled:opacity-50 disabled:pointer-events-none";
     
     const variantClasses = {
-      default: "bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700",
-      secondary: "bg-teal-400 text-navy-800 hover:bg-teal-500 active:bg-teal-600",
-      accent: "bg-purple-400 text-white hover:bg-purple-500 active:bg-purple-600",
-      outline: "border border-blue-500 text-blue-500 bg-transparent hover:bg-blue-50 dark:hover:bg-navy-800",
-      ghost: "text-blue-500 hover:bg-blue-50 dark:hover:bg-navy-800",
-      link: "text-blue-500 underline-offset-4 hover:underline p-0 h-auto",
-      glass: "bg-white/70 backdrop-blur-lg border border-white/20 text-navy-800 hover:bg-white/80 dark:bg-navy-800/50 dark:text-white dark:hover:bg-navy-800/60",
-      neon: "bg-[#121212] text-[#00E5FF] border-2 border-[#00E5FF] shadow-[0_0_10px_rgba(0,229,255,0.5)] hover:shadow-[0_0_15px_rgba(0,229,255,0.8)] hover:text-white"
+      default: "bg-primary text-white hover:bg-primary/90 active:bg-primary/80",
+      secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 active:bg-secondary/80",
+      accent: "bg-accent text-white hover:bg-accent/90 active:bg-accent/80",
+      outline: "border border-primary text-primary bg-transparent hover:bg-primary/10",
+      ghost: "text-primary hover:bg-primary/10",
+      link: "text-primary underline-offset-4 hover:underline p-0 h-auto",
+      glass: "bg-popover/30 backdrop-blur-lg border border-white/10 text-foreground hover:bg-popover/40",
+      neon: "bg-[#121212] text-[#00E5FF] border-2 border-[#00E5FF] shadow-[0_0_10px_rgba(0,229,255,0.5)] hover:shadow-[0_0_15px_rgba(0,229,255,0.8)] hover:text-white",
+      "neon-magenta": "bg-[#121212] text-[#FF3366] border-2 border-[#FF3366] shadow-[0_0_10px_rgba(255,51,102,0.5)] hover:shadow-[0_0_15px_rgba(255,51,102,0.8)] hover:text-white",
+      "neon-green": "bg-[#121212] text-[#76FF03] border-2 border-[#76FF03] shadow-[0_0_10px_rgba(118,255,3,0.5)] hover:shadow-[0_0_15px_rgba(118,255,3,0.8)] hover:text-white"
     };
     
     const sizeClasses = {
@@ -43,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
     
     const ringClasses = withRing ? 
-      "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500/80 focus-visible:ring-offset-background" : "";
+      "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/80 focus-visible:ring-offset-background" : "";
     
     const animationClasses = withAnimation ? "hover:-translate-y-1 transition-transform" : "";
     

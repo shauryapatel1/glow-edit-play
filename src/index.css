@@ -10,6 +10,7 @@
 
 @layer base {
   :root {
+    /* Light theme - keeping for reference but the app will default to dark */
     --background: 20 100% 97%;
     --foreground: 20 60% 10%;
 
@@ -50,43 +51,49 @@
     --sidebar-ring: 20 95% 60%;
   }
 
-  .dark {
-    --background: 15 40% 8%;
-    --foreground: 20 30% 90%;
+  /* Make dark theme the default */
+  :root {
+    /* Dark theme with neon accents */
+    --background: 0 0% 7%; /* #121212 */
+    --foreground: 0 0% 88%; /* #E0E0E0 */
 
-    --card: 15 40% 8%;
-    --card-foreground: 20 30% 90%;
+    --card: 0 0% 12%; /* #1E1E1E */
+    --card-foreground: 0 0% 88%; /* #E0E0E0 */
 
-    --popover: 15 40% 8%;
-    --popover-foreground: 20 30% 90%;
+    --popover: 0 0% 16%; /* #2A2A2A */
+    --popover-foreground: 0 0% 88%; /* #E0E0E0 */
 
-    --primary: 20 90% 55%;
-    --primary-foreground: 0 0% 100%;
+    /* Electric Blue as primary */
+    --primary: 186 100% 50%; /* #00E5FF */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --secondary: 40 60% 50%;
-    --secondary-foreground: 0 0% 100%;
+    /* Neon Green as secondary */
+    --secondary: 95 100% 50%; /* #76FF03 */
+    --secondary-foreground: 0 0% 10%; /* #1A1A1A */
 
-    --muted: 15 30% 15%;
-    --muted-foreground: 20 20% 65%;
+    /* Darker background elements */
+    --muted: 0 0% 16%; /* #2A2A2A */
+    --muted-foreground: 0 0% 60%; /* #999999 */
 
-    --accent: 330 70% 55%;
-    --accent-foreground: 0 0% 100%;
+    /* Neon Magenta as accent */
+    --accent: 345 100% 60%; /* #FF3366 */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --destructive: 0 63% 40%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 100% 50%; /* #FF0000 */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --border: 15 30% 20%;
-    --input: 15 30% 20%;
-    --ring: 20 90% 55%;
+    --border: 0 0% 20%; /* #333333 */
+    --input: 0 0% 20%; /* #333333 */
+    --ring: 186 100% 50%; /* #00E5FF */
 
-    --sidebar-background: 15 30% 10%;
-    --sidebar-foreground: 20 20% 90%;
-    --sidebar-primary: 20 80% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 15 25% 15%;
-    --sidebar-accent-foreground: 20 20% 90%;
-    --sidebar-border: 15 30% 20%;
-    --sidebar-ring: 20 90% 55%;
+    --sidebar-background: 0 0% 10%; /* #1A1A1A */
+    --sidebar-foreground: 0 0% 88%; /* #E0E0E0 */
+    --sidebar-primary: 186 100% 50%; /* #00E5FF */
+    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-accent: 0 0% 14%; /* #242424 */
+    --sidebar-accent-foreground: 0 0% 88%; /* #E0E0E0 */
+    --sidebar-border: 0 0% 20%; /* #333333 */
+    --sidebar-ring: 186 100% 50%; /* #00E5FF */
   }
 }
 
@@ -135,13 +142,13 @@
 }
 
 @layer components {
-  /* Glass card effect */
+  /* Glass card effect - updated for dark theme */
   .glass {
-    @apply bg-primary/10 dark:bg-primary/10 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-glass;
+    @apply bg-popover/30 backdrop-blur-lg border border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.2)];
   }
 
   .glass-sm {
-    @apply bg-primary/5 dark:bg-primary/10 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-glass-sm;
+    @apply bg-popover/20 backdrop-blur-md border border-white/10 shadow-[0_4px_16px_rgba(0,229,255,0.15)];
   }
 
   /* Button hover effect */
@@ -149,28 +156,41 @@
     @apply transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98];
   }
 
-  /* Link underline animation */
+  /* Link underline animation with neon color */
   .link-underline {
     @apply relative inline-block after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
 
-  /* Hero gradient */
+  /* Updated gradients for neon theme */
   .hero-gradient {
-    @apply bg-gradient-to-b from-secondary/40 to-background dark:from-primary/10 dark:to-background;
+    @apply bg-gradient-to-b from-primary/10 to-background;
   }
 
-  /* Sunset gradient */
-  .sunset-gradient {
-    @apply bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500;
+  /* Neon gradient */
+  .neon-gradient {
+    @apply bg-gradient-to-r from-[#00E5FF] via-[#FF3366] to-[#76FF03];
   }
 
-  /* Pixel styles */
+  /* Pixel styles with neon colors */
   .pixel-box {
     @apply border-2 border-primary shadow-[4px_4px_0] shadow-primary/60;
   }
 
   .pixel-button {
     @apply pixel-box px-4 py-2 bg-secondary hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200;
+  }
+
+  /* Glow effects */
+  .neon-glow {
+    @apply shadow-[0_0_15px_rgba(0,229,255,0.6)];
+  }
+  
+  .neon-glow-magenta {
+    @apply shadow-[0_0_15px_rgba(255,51,102,0.6)];
+  }
+  
+  .neon-glow-green {
+    @apply shadow-[0_0_15px_rgba(118,255,3,0.6)];
   }
 
   /* Custom animations */
@@ -193,11 +213,18 @@
   }
 }
 
+/* Pulse animation for neon elements */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 10px rgba(0,229,255,0.6); }
+  50% { box-shadow: 0 0 20px rgba(0,229,255,0.8); }
+  100% { box-shadow: 0 0 10px rgba(0,229,255,0.6); }
+}
+
 /* Smooth scrollbar for supported browsers */
 @supports (scrollbar-width: thin) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(249, 115, 22, 0.3) transparent;
+    scrollbar-color: rgba(0, 229, 255, 0.5) transparent;
   }
 }
 
@@ -212,7 +239,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(249, 115, 22, 0.3);
+    background-color: rgba(0, 229, 255, 0.5);
     border-radius: 3px;
   }
 }
