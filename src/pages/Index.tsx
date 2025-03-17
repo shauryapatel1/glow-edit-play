@@ -1,9 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { HeroWithObjects } from '@/components/ui-sections/HeroWithObjects';
-import { VideoEditorPreview } from '@/components/ui-sections/VideoEditorPreview';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
@@ -62,13 +62,10 @@ const Index = () => {
             {/* Hero Section with Floating Objects */}
             <HeroWithObjects 
               title="Your Gateway to Viral Video Stardom"
-              subtitle="Create scroll-stopping content engineered to go viral on TikTok, Instagram Reels, and beyond"
+              subtitle="Make your short videos pop with AI-powered editing"
               ctaText="Start Free Trial"
               secondaryCtaText="Watch Demo"
             />
-            
-            {/* Video Editor Preview */}
-            <VideoEditorPreview />
             
             {/* Features Section */}
             <FeaturesSection />
