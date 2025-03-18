@@ -8,21 +8,21 @@
 @layer base {
   :root {
     /* Minimalist dark theme */
-    --background: 0 0% 3%; /* #080808 - Very dark background */
+    --background: 0 0% 5%; /* #0D0D0D - Very dark background */
     --foreground: 0 0% 90%; /* #E6E6E6 */
 
-    --card: 0 0% 7%; /* #121212 */
+    --card: 0 0% 8%; /* #141414 */
     --card-foreground: 0 0% 90%; /* #E6E6E6 */
 
     --popover: 0 0% 10%; /* #1A1A1A */
     --popover-foreground: 0 0% 90%; /* #E6E6E6 */
 
     /* Subtle blue as primary */
-    --primary: 210 100% 50%; /* #0078FF */
+    --primary: 210 90% 60%; /* #3A9CFF */
     --primary-foreground: 0 0% 100%; /* #FFFFFF */
 
     /* Dark gray as secondary */
-    --secondary: 0 0% 15%; /* #262626 */
+    --secondary: 0 0% 14%; /* #242424 */
     --secondary-foreground: 0 0% 90%; /* #E6E6E6 */
 
     /* Darker background elements */
@@ -30,24 +30,15 @@
     --muted-foreground: 0 0% 60%; /* #999999 */
 
     /* Subtle accent color */
-    --accent: 210 90% 60%; /* #1A8CFF */
+    --accent: 210 90% 60%; /* #3A9CFF */
     --accent-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --destructive: 0 100% 40%; /* #CC0000 */
+    --destructive: 0 80% 50%; /* #FF4040 */
     --destructive-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --border: 0 0% 15%; /* #262626 */
-    --input: 0 0% 15%; /* #262626 */
-    --ring: 210 100% 50%; /* #0078FF */
-
-    --sidebar-background: 0 0% 5%; /* #0D0D0D */
-    --sidebar-foreground: 0 0% 90%; /* #E6E6E6 */
-    --sidebar-primary: 210 100% 50%; /* #0078FF */
-    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
-    --sidebar-accent: 0 0% 10%; /* #1A1A1A */
-    --sidebar-accent-foreground: 0 0% 90%; /* #E6E6E6 */
-    --sidebar-border: 0 0% 15%; /* #262626 */
-    --sidebar-ring: 210 100% 50%; /* #0078FF */
+    --border: 0 0% 14%; /* #242424 */
+    --input: 0 0% 14%; /* #242424 */
+    --ring: 210 90% 60%; /* #3A9CFF */
   }
 }
 
@@ -66,7 +57,7 @@
 
   /* Custom focus styles */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary/80 ring-offset-2 ring-offset-background transition-all duration-200;
+    @apply outline-none ring-1 ring-primary/60 ring-offset-1 ring-offset-background transition-all duration-200;
   }
   
   /* Typography overrides */
@@ -75,19 +66,19 @@
   }
   
   h1 {
-    @apply text-3xl sm:text-4xl lg:text-5xl;
-  }
-  
-  h2 {
     @apply text-2xl sm:text-3xl lg:text-4xl;
   }
   
+  h2 {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  
   h3 {
-    @apply text-xl sm:text-2xl;
+    @apply text-lg sm:text-xl;
   }
   
   h4 {
-    @apply text-lg sm:text-xl;
+    @apply text-base sm:text-lg;
   }
   
   p {

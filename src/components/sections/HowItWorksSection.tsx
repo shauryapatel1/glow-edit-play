@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { VideoPreview } from '../ui-custom/VideoPreview';
 import { motion } from 'framer-motion';
+import { VideoPreview } from '../ui-custom/VideoPreview';
+import { Separator } from '@/components/ui/separator';
 
 export const HowItWorksSection: React.FC = () => {
   const steps = [
@@ -28,62 +29,56 @@ export const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20">
+    <section id="how-it-works" className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="mb-2 inline-block">
-            <span className="inline-flex items-center rounded-md px-3 py-1 text-sm font-pixel text-sunset-400 bg-sunset-400/10 border-2 border-sunset-400 shadow-[2px_2px_0px_0px] shadow-sunset-400/60">
-              How It Works
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-pixel mb-4 bg-sunset-gradient bg-clip-text text-transparent">Create professional videos in minutes</h2>
-          <p className="text-xl text-muted-foreground">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-primary text-sm uppercase tracking-wider">How It Works</span>
+          <h2 className="text-2xl md:text-3xl font-medium mt-2 mb-4">Create professional videos in minutes</h2>
+          <p className="text-muted-foreground">
             A simple four-step process that transforms raw footage into stunning content.
           </p>
+          <Separator className="w-16 h-1 bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Video Preview */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="order-2 lg:order-1 relative"
+            transition={{ duration: 0.5 }}
+            className="order-2 lg:order-1"
           >
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-sunset-400/20 rounded-full"></div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-sunset-pink-400/20 rounded-full"></div>
-            
             <VideoPreview 
               imageSrc="https://images.unsplash.com/photo-1574717024453-354056afd6fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-              className="relative z-10"
+              className="rounded-lg overflow-hidden shadow-md"
               overlayText="See how easy it is to create professional videos"
             />
           </motion.div>
           
           {/* Steps */}
           <div className="order-1 lg:order-2">
-            <div className="space-y-8">
+            <div className="space-y-6">
               {steps.map((step, index) => (
                 <motion.div 
                   key={index} 
-                  className="flex gap-6"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="flex gap-4"
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-md border-2 border-sunset-400 bg-sunset-400/10 shadow-[2px_2px_0px_0px] shadow-sunset-400/30 flex items-center justify-center text-sunset-400 font-pixel">
-                      {step.number}
+                    <div className="w-8 h-8 rounded-full border border-primary flex items-center justify-center text-primary text-sm">
+                      {step.number.substring(1)}
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-pixel mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+                    <h3 className="text-lg font-medium mb-1">{step.title}</h3>
+                    <p className="text-muted-foreground text-sm">{step.description}</p>
                     
                     {index < steps.length - 1 && (
-                      <div className="ml-6 mt-4 h-8 border-l-2 border-dashed border-sunset-400/30"></div>
+                      <div className="ml-4 my-3 h-6 border-l border-primary/20"></div>
                     )}
                   </div>
                 </motion.div>

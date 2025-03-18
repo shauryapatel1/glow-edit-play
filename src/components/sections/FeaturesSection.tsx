@@ -1,10 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PixelCard } from '../ui-custom/PixelCard';
-import { PixelButton } from '../ui-custom/PixelButton';
-import { staggerContainer, pixelFadeIn } from '@/lib/animation-utils';
-import { ParticleField } from '../effects/ParticleField';
+import { FeatureCard } from '../ui-custom/FeatureCard';
+import { Separator } from '@/components/ui/separator';
 
 export const FeaturesSection: React.FC = () => {
   const features = [
@@ -23,7 +21,7 @@ export const FeaturesSection: React.FC = () => {
         </svg>
       ),
       title: "AI-Powered Trend Integration",
-      description: "Our AI continuously scans social media for the hottest trends, recommending engaging effects and filters to keep your content ahead of the curve."
+      description: "Our AI continuously scans social media for the hottest trends, recommending engaging effects and filters."
     },
     {
       icon: (
@@ -34,7 +32,7 @@ export const FeaturesSection: React.FC = () => {
         </svg>
       ),
       title: "Dynamic Motion Graphics",
-      description: "Elevate your videos with professional-grade motion graphics, animated text, creative shapes, and dynamic particle bursts that bring your personality to life."
+      description: "Elevate your videos with professional-grade motion graphics, animated text, and creative shapes."
     },
     {
       icon: (
@@ -48,7 +46,7 @@ export const FeaturesSection: React.FC = () => {
         </svg>
       ),
       title: "Smart Editing",
-      description: "Our smart cutting feature pinpoints the perfect moments to trim your footage, ensuring every second is optimized for maximum impact and engagement."
+      description: "Our smart cutting feature pinpoints the perfect moments to trim your footage for maximum impact."
     },
     {
       icon: (
@@ -60,7 +58,7 @@ export const FeaturesSection: React.FC = () => {
         </svg>
       ),
       title: "Interactive Collaboration",
-      description: "Collaborate live with your team to brainstorm, edit, and refine your content within a streamlined workspace that makes creativity a collective adventure."
+      description: "Collaborate live with your team to brainstorm, edit, and refine your content efficiently."
     },
     {
       icon: (
@@ -72,7 +70,7 @@ export const FeaturesSection: React.FC = () => {
         </svg>
       ),
       title: "Real-time Engagement Metrics",
-      description: "View performance analytics, success stories, and trending data in real-time with our immersive, interactive dashboard."
+      description: "View performance analytics, success stories, and trending data in real-time with our dashboard."
     },
     {
       icon: (
@@ -84,81 +82,40 @@ export const FeaturesSection: React.FC = () => {
         </svg>
       ),
       title: "Viral-Ready Templates",
-      description: "Access a library of pre-designed templates proven to perform well on social media platforms, customizable to match your unique style."
+      description: "Access a library of pre-designed templates proven to perform well, customizable to your style."
     }
   ];
 
   return (
-    <section id="features" className="py-20 bg-sunset-50/50 dark:bg-navy-900/50 relative overflow-hidden">
-      {/* Pixel art background elements */}
-      <div className="absolute top-10 left-10 w-6 h-6 bg-sunset-400 animate-pixel-shift" />
-      <div className="absolute bottom-20 right-20 w-8 h-8 bg-sunset-pink-500 animate-pixel-shift" style={{ animationDelay: '0.2s' }} />
-      <div className="absolute top-1/2 right-10 w-4 h-4 bg-sunset-yellow-400 animate-pixel-shift" style={{ animationDelay: '0.4s' }} />
-      
-      {/* Particle background */}
-      <div className="absolute inset-0 opacity-30">
-        <ParticleField color="#EA384C" density={20} speed={0.1} />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          variants={staggerContainer(0.1, 0.1)}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <motion.div 
-            variants={pixelFadeIn(0)}
-            className="mb-4 inline-block"
-          >
-            <span className="inline-flex items-center rounded-md px-3 py-1 text-sm font-pixel text-sunset-500 bg-sunset-500/10 border-2 border-sunset-500 shadow-[2px_2px_0px_0px] shadow-sunset-500/60">
-              Features
-            </span>
-          </motion.div>
-          <motion.h2 
-            variants={pixelFadeIn(0.1)}
-            className="text-3xl sm:text-4xl font-pixel mb-4 bg-sunset-gradient bg-clip-text text-transparent"
-          >
-            Create Scroll-Stopping Content That Goes Viral
-          </motion.h2>
-          <motion.p 
-            variants={pixelFadeIn(0.2)}
-            className="text-xl text-muted-foreground"
-          >
-            We fuse AI-driven editing with interactive trend insights and collaborative tools to give your videos that extra edge.
-          </motion.p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <PixelCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-              variant={index % 3 === 0 ? 'orange' : index % 3 === 1 ? 'purple' : 'yellow'}
-              delay={index}
-              hasAnimation={true}
-            />
-          ))}
+    <section id="features" className="py-16 bg-background relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-primary text-sm uppercase tracking-wider">Features</span>
+          <h2 className="text-2xl md:text-3xl font-medium mt-2 mb-4">Create Scroll-Stopping Content</h2>
+          <p className="text-muted-foreground">
+            AI-driven editing with trend insights and collaborative tools to give your videos that extra edge.
+          </p>
+          <Separator className="w-16 h-1 bg-primary mx-auto mt-6" />
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-16 text-center"
-        >
-          <PixelButton 
-            variant="sunset"
-            size="lg"
-            className="animate-glow"
-          >
-            Explore All Features
-          </PixelButton>
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <FeatureCard
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                variant="glass"
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
