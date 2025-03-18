@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,57 +9,14 @@
 
 @layer base {
   :root {
-    /* Light theme - keeping for reference but the app will default to dark */
-    --background: 20 100% 97%;
-    --foreground: 20 60% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 20 60% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 60% 10%;
-
-    --primary: 20 95% 60%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 40 90% 70%; 
-    --secondary-foreground: 20 60% 10%;
-
-    --muted: 20 30% 92%;
-    --muted-foreground: 20 20% 40%;
-
-    --accent: 330 80% 75%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 20 30% 85%;
-    --input: 20 30% 85%;
-    --ring: 20 95% 60%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 20 30% 96%;
-    --sidebar-foreground: 20 40% 20%;
-    --sidebar-primary: 20 60% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 20 20% 92%;
-    --sidebar-accent-foreground: 20 60% 10%;
-    --sidebar-border: 20 30% 85%;
-    --sidebar-ring: 20 95% 60%;
-  }
-
-  /* Make dark theme the default */
-  :root {
-    /* Dark theme with neon accents */
-    --background: 0 0% 7%; /* #121212 */
+    /* Dark minimalist theme */
+    --background: 0 0% 0%; /* Pure black */
     --foreground: 0 0% 88%; /* #E0E0E0 */
 
-    --card: 0 0% 12%; /* #1E1E1E */
+    --card: 0 0% 5%; /* #0D0D0D */
     --card-foreground: 0 0% 88%; /* #E0E0E0 */
 
-    --popover: 0 0% 16%; /* #2A2A2A */
+    --popover: 0 0% 7%; /* #121212 */
     --popover-foreground: 0 0% 88%; /* #E0E0E0 */
 
     /* Electric Blue as primary */
@@ -72,7 +28,7 @@
     --secondary-foreground: 0 0% 10%; /* #1A1A1A */
 
     /* Darker background elements */
-    --muted: 0 0% 16%; /* #2A2A2A */
+    --muted: 0 0% 10%; /* #1A1A1A */
     --muted-foreground: 0 0% 60%; /* #999999 */
 
     /* Neon Magenta as accent */
@@ -82,17 +38,17 @@
     --destructive: 0 100% 50%; /* #FF0000 */
     --destructive-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --border: 0 0% 20%; /* #333333 */
-    --input: 0 0% 20%; /* #333333 */
+    --border: 0 0% 15%; /* #262626 */
+    --input: 0 0% 15%; /* #262626 */
     --ring: 186 100% 50%; /* #00E5FF */
 
-    --sidebar-background: 0 0% 10%; /* #1A1A1A */
+    --sidebar-background: 0 0% 7%; /* #121212 */
     --sidebar-foreground: 0 0% 88%; /* #E0E0E0 */
     --sidebar-primary: 186 100% 50%; /* #00E5FF */
     --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
-    --sidebar-accent: 0 0% 14%; /* #242424 */
+    --sidebar-accent: 0 0% 10%; /* #1A1A1A */
     --sidebar-accent-foreground: 0 0% 88%; /* #E0E0E0 */
-    --sidebar-border: 0 0% 20%; /* #333333 */
+    --sidebar-border: 0 0% 15%; /* #262626 */
     --sidebar-ring: 186 100% 50%; /* #00E5FF */
   }
 }
@@ -142,13 +98,13 @@
 }
 
 @layer components {
-  /* Glass card effect - updated for dark theme */
+  /* Glass card effect - updated for minimalist dark theme */
   .glass {
-    @apply bg-popover/30 backdrop-blur-lg border border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.2)];
+    @apply bg-black/30 backdrop-blur-lg border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.5)];
   }
 
   .glass-sm {
-    @apply bg-popover/20 backdrop-blur-md border border-white/10 shadow-[0_4px_16px_rgba(0,229,255,0.15)];
+    @apply bg-black/20 backdrop-blur-md border border-white/5 shadow-[0_4px_16px_rgba(0,0,0,0.3)];
   }
 
   /* Button hover effect */
@@ -161,9 +117,9 @@
     @apply relative inline-block after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
 
-  /* Updated gradients for neon theme */
+  /* Updated gradients for minimalist theme */
   .hero-gradient {
-    @apply bg-gradient-to-b from-primary/10 to-background;
+    @apply bg-black;
   }
 
   /* Neon gradient */
@@ -173,24 +129,24 @@
 
   /* Pixel styles with neon colors */
   .pixel-box {
-    @apply border-2 border-primary shadow-[4px_4px_0] shadow-primary/60;
+    @apply border border-primary/30 shadow-[2px_2px_0] shadow-primary/20;
   }
 
   .pixel-button {
-    @apply pixel-box px-4 py-2 bg-secondary hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200;
+    @apply pixel-box px-4 py-2 bg-black hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-200;
   }
 
   /* Glow effects */
   .neon-glow {
-    @apply shadow-[0_0_15px_rgba(0,229,255,0.6)];
+    @apply shadow-[0_0_10px_rgba(0,229,255,0.4)];
   }
   
   .neon-glow-magenta {
-    @apply shadow-[0_0_15px_rgba(255,51,102,0.6)];
+    @apply shadow-[0_0_10px_rgba(255,51,102,0.4)];
   }
   
   .neon-glow-green {
-    @apply shadow-[0_0_15px_rgba(118,255,3,0.6)];
+    @apply shadow-[0_0_10px_rgba(118,255,3,0.4)];
   }
 
   /* Custom animations */

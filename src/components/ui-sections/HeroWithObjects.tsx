@@ -21,15 +21,15 @@ export const HeroWithObjects: React.FC<HeroWithObjectsProps> = (props) => {
       transition={{ duration: 0.6 }}
       className="relative z-10"
     >
-      {/* Floating Objects in hero section - reduced count since we have InteractiveScene */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Floating Objects in hero section - enhanced for minimalist design */}
+      <div className="absolute inset-0 overflow-hidden">
         <FloatingObjects 
-          objectCount={8} // Reduced from 10
-          colors={["#F97316", "#00E5FF", "#FF3366"]}
+          objectCount={6}
+          colors={["#00E5FF", "#FF3366", "#76FF03"]}
           shapes={['sphere', 'torus']}
-          rotationSpeed={0.003} // Increased slightly
-          floatSpeed={0.4} // Increased slightly
-          className="opacity-30" // Reduced opacity
+          rotationSpeed={0.005}
+          floatSpeed={0.6}
+          className="opacity-40"
         />
       </div>
       
