@@ -1,0 +1,64 @@
+
+@layer components {
+  /* Minimalist glass effect */
+  .glass {
+    @apply bg-card/80 backdrop-blur-sm border border-white/5 shadow-lg;
+  }
+
+  .glass-sm {
+    @apply bg-card/60 backdrop-blur-sm border border-white/5 shadow-md;
+  }
+
+  /* Button hover effect */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Link underline animation */
+  .link-underline {
+    @apply relative inline-block after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  /* Simple gradients */
+  .hero-gradient {
+    @apply bg-gradient-to-b from-background to-muted/40;
+  }
+
+  /* Card styles */
+  .card-minimal {
+    @apply bg-card rounded-md border border-border/50 shadow-sm;
+  }
+
+  /* Button styles */
+  .btn-minimal {
+    @apply px-4 py-2 rounded bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors;
+  }
+}
+
+/* Simple smooth scrollbar */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+  }
+}
+
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.5);
+    border-radius: 3px;
+  }
+}

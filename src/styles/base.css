@@ -1,0 +1,96 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Minimalist dark theme */
+    --background: 0 0% 3%; /* #080808 - Very dark background */
+    --foreground: 0 0% 90%; /* #E6E6E6 */
+
+    --card: 0 0% 7%; /* #121212 */
+    --card-foreground: 0 0% 90%; /* #E6E6E6 */
+
+    --popover: 0 0% 10%; /* #1A1A1A */
+    --popover-foreground: 0 0% 90%; /* #E6E6E6 */
+
+    /* Subtle blue as primary */
+    --primary: 210 100% 50%; /* #0078FF */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+
+    /* Dark gray as secondary */
+    --secondary: 0 0% 15%; /* #262626 */
+    --secondary-foreground: 0 0% 90%; /* #E6E6E6 */
+
+    /* Darker background elements */
+    --muted: 0 0% 12%; /* #1F1F1F */
+    --muted-foreground: 0 0% 60%; /* #999999 */
+
+    /* Subtle accent color */
+    --accent: 210 90% 60%; /* #1A8CFF */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --destructive: 0 100% 40%; /* #CC0000 */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --border: 0 0% 15%; /* #262626 */
+    --input: 0 0% 15%; /* #262626 */
+    --ring: 210 100% 50%; /* #0078FF */
+
+    --sidebar-background: 0 0% 5%; /* #0D0D0D */
+    --sidebar-foreground: 0 0% 90%; /* #E6E6E6 */
+    --sidebar-primary: 210 100% 50%; /* #0078FF */
+    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-accent: 0 0% 10%; /* #1A1A1A */
+    --sidebar-accent-foreground: 0 0% 90%; /* #E6E6E6 */
+    --sidebar-border: 0 0% 15%; /* #262626 */
+    --sidebar-ring: 210 100% 50%; /* #0078FF */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/80 ring-offset-2 ring-offset-background transition-all duration-200;
+  }
+  
+  /* Typography overrides */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight;
+  }
+  
+  h1 {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+  
+  h2 {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+  
+  h3 {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  h4 {
+    @apply text-lg sm:text-xl;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}

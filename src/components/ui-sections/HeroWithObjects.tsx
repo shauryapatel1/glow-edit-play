@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HeroSection } from '../ui-custom/HeroSection';
-import { FloatingObjects } from '../effects/FloatingObjects';
 
 interface HeroWithObjectsProps {
   title: string;
@@ -21,17 +20,7 @@ export const HeroWithObjects: React.FC<HeroWithObjectsProps> = (props) => {
       transition={{ duration: 0.6 }}
       className="relative z-10"
     >
-      {/* Floating Objects in hero section - enhanced for minimalist design */}
-      <div className="absolute inset-0 overflow-hidden">
-        <FloatingObjects 
-          objectCount={6}
-          colors={["#00E5FF", "#FF3366", "#76FF03"]}
-          shapes={['sphere', 'torus']}
-          rotationSpeed={0.005}
-          floatSpeed={0.6}
-          className="opacity-40"
-        />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background to-background/60"></div>
       
       <HeroSection 
         title={props.title}
