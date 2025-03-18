@@ -25,6 +25,7 @@ export const ParticleField: React.FC<ParticleFieldProps> = ({
 
     let particles: Particle[] = [];
     let animationFrameId: number;
+    let mouse = { x: undefined, y: undefined, radius: 150 };
     
     const resizeCanvas = () => {
       if (!canvas) return;
@@ -41,7 +42,10 @@ export const ParticleField: React.FC<ParticleFieldProps> = ({
       vx: number;
       vy: number;
       radius: number;
+      baseRadius: number;
       color: string;
+      baseColor: string;
+      density: number;
       
       constructor() {
         this.x = Math.random() * canvas.width;
@@ -49,10 +53,47 @@ export const ParticleField: React.FC<ParticleFieldProps> = ({
         this.vx = (Math.random() - 0.5) * speed;
         this.vy = (Math.random() - 0.5) * speed;
         this.radius = Math.random() * 2 + 0.5;
+        this.baseRadius = this.radius;
         this.color = color;
+        this.baseColor = color;
+        this.density = Math.random() * 30 + 1;
       }
       
       update() {
+        // Mouse interaction
+        if (mouse.x !== undefined && mouse.y !== undefined) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const forceDirectionX = dx / distance;
+          const forceDirectionY = dy / distance;
+          
+          // Maximum distance, past which the force is 0
+          const maxDistance = mouse.radius;
+          const force = (maxDistance - distance) / maxDistance;
+          
+          if (distance < maxDistance) {
+            // Calculate directional force
+            const directionX = forceDirectionX * force * this.density;
+            const directionY = forceDirectionY * force * this.density;
+            
+            // Repel particle from mouse
+            this.x -= directionX;
+            this.y -= directionY;
+            
+            // Change color and size when affected by mouse
+            this.color = '#FF3366'; // Neon magenta
+            this.radius = this.baseRadius * 1.5;
+          } else {
+            // Return to original properties when not affected
+            if (this.color !== this.baseColor) {
+              this.color = this.baseColor;
+              this.radius = this.baseRadius;
+            }
+          }
+        }
+        
+        // Regular movement
         this.x += this.vx;
         this.y += this.vy;
         
@@ -110,13 +151,30 @@ export const ParticleField: React.FC<ParticleFieldProps> = ({
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    // Mouse events
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = (e.clientX - rect.left) * window.devicePixelRatio;
+      mouse.y = (e.clientY - rect.top) * window.devicePixelRatio;
+    };
+    
+    const handleMouseLeave = () => {
+      mouse.x = undefined;
+      mouse.y = undefined;
+    };
+
     // Initialize and start animation
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
     animate();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, [color, density, speed]);

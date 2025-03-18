@@ -10,6 +10,8 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { GlowingOrb } from '@/components/effects/GlowingOrb';
 import { FloatingObjects } from '@/components/effects/FloatingObjects';
+import { InteractiveScene } from '@/components/effects/InteractiveScene';
+import { ParticleField } from '@/components/effects/ParticleField';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -59,40 +61,65 @@ const Index = () => {
           <Navbar />
           
           <main className="flex-1">
-            {/* Hero Section with Floating Objects */}
-            <HeroWithObjects 
-              title="Your Gateway to Viral Video Stardom"
-              subtitle="Make your short videos pop with AI-powered editing"
-              ctaText="Start Free Trial"
-              secondaryCtaText="Watch Demo"
-            />
+            {/* Hero Section with Floating Objects and Interactive Particles */}
+            <div className="relative">
+              <HeroWithObjects 
+                title="Your Gateway to Viral Video Stardom"
+                subtitle="Make your short videos pop with AI-powered editing"
+                ctaText="Start Free Trial"
+                secondaryCtaText="Watch Demo"
+              />
+              
+              {/* Add interactive 3D scene behind the hero */}
+              <div className="absolute inset-0 z-0 pointer-events-none">
+                <InteractiveScene />
+              </div>
+            </div>
             
-            {/* Features Section */}
-            <FeaturesSection />
+            {/* Features Section with Particle Background */}
+            <div className="relative">
+              <div className="absolute inset-0 z-0">
+                <ParticleField 
+                  color="#00E5FF" 
+                  density={30}
+                  speed={0.3}
+                  className="opacity-25"
+                />
+              </div>
+              <FeaturesSection />
+            </div>
             
-            {/* How It Works Section with Floating Objects */}
+            {/* How It Works Section with enhanced Floating Objects */}
             <div className="relative overflow-hidden">
-              {/* Add FloatingObjects in How It Works section */}
+              {/* Enhance FloatingObjects in How It Works section */}
               <div className="absolute inset-0 pointer-events-none">
                 <FloatingObjects 
-                  objectCount={8}
-                  colors={["#EA384C", "#FEC6A1", "#D946EF"]}
-                  shapes={['cube', 'cone']}
-                  rotationSpeed={0.001}
-                  floatSpeed={0.2}
+                  objectCount={12}
+                  colors={["#00E5FF", "#FF3366", "#76FF03"]}
+                  shapes={['cube', 'cone', 'torus', 'sphere']}
+                  rotationSpeed={0.002}
+                  floatSpeed={0.4}
                   minSize={0.5}
-                  maxSize={1.2}
-                  className="opacity-30"
+                  maxSize={1.5}
+                  className="opacity-40"
                 />
               </div>
               
               <HowItWorksSection />
             </div>
             
-            {/* Testimonials Section */}
-            <TestimonialsSection />
+            {/* Testimonials Section with glowing orbs */}
+            <div className="relative">
+              <div className="absolute top-1/4 left-1/4 opacity-40 pointer-events-none">
+                <GlowingOrb size={60} color="#00E5FF" intensity={1.2} position={[0, 0, -50]} />
+              </div>
+              <div className="absolute bottom-1/4 right-1/4 opacity-40 pointer-events-none">
+                <GlowingOrb size={80} color="#FF3366" intensity={1} position={[0, 0, -70]} />
+              </div>
+              <TestimonialsSection />
+            </div>
             
-            {/* CTA Section */}
+            {/* CTA Section with enhanced background */}
             <CtaSection />
           </main>
           

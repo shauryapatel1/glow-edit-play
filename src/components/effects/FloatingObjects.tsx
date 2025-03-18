@@ -49,6 +49,10 @@ export const FloatingObjects: React.FC<FloatingObjectsProps> = ({
     renderer.setPixelRatio(window.devicePixelRatio);
     containerRef.current.appendChild(renderer.domElement);
     
+    // Mouse tracking
+    const mouse = new THREE.Vector2(0, 0);
+    let mouseOver = false;
+    
     // Create objects
     const objects: THREE.Mesh[] = [];
     
@@ -81,6 +85,9 @@ export const FloatingObjects: React.FC<FloatingObjectsProps> = ({
         transparent: true,
         opacity: 0.7,
         side: THREE.DoubleSide,
+        emissive: new THREE.Color(color),
+        emissiveIntensity: 0.2,
+        shininess: 30
       });
       
       const object = new THREE.Mesh(geometry, material);
@@ -107,6 +114,8 @@ export const FloatingObjects: React.FC<FloatingObjectsProps> = ({
       (object as any).floatSpeed = (Math.random() * 0.01 + 0.005) * floatSpeed;
       (object as any).rotateSpeedX = (Math.random() * 0.01 + 0.002) * rotationSpeed;
       (object as any).rotateSpeedY = (Math.random() * 0.01 + 0.002) * rotationSpeed;
+      (object as any).originalPosition = object.position.clone();
+      (object as any).originalMaterial = material.clone();
     }
     
     // Add lights
@@ -117,26 +126,79 @@ export const FloatingObjects: React.FC<FloatingObjectsProps> = ({
     directionalLight.position.set(1, 1, 1);
     scene.add(directionalLight);
     
+    // Mouse interaction
+    const handleMouseMove = (event: MouseEvent) => {
+      if (!containerRef.current) return;
+      
+      mouseOver = true;
+      
+      // Convert mouse position to normalized device coordinates (-1 to +1)
+      const rect = containerRef.current.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    };
+    
+    const handleMouseLeave = () => {
+      mouseOver = false;
+    };
+    
+    containerRef.current.addEventListener('mousemove', handleMouseMove);
+    containerRef.current.addEventListener('mouseleave', handleMouseLeave);
+    
     // Animation loop
+    const clock = new THREE.Clock();
+    
     const animate = () => {
-      requestAnimationFrame(animate);
+      const elapsedTime = clock.getElapsedTime();
       
       // Animate each object
-      objects.forEach(object => {
+      objects.forEach((object, index) => {
         // Rotation
         object.rotation.x += (object as any).rotateSpeedX;
         object.rotation.y += (object as any).rotateSpeedY;
         
-        // Floating movement
-        object.position.y += (object as any).floatSpeed * (object as any).floatDirection;
-        
-        // Change direction when reaching thresholds
-        if (object.position.y > 5 || object.position.y < -5) {
-          (object as any).floatDirection *= -1;
+        // Handle mouse interaction
+        if (mouseOver) {
+          // Calculate distance from mouse in normalized space
+          const mousePosition3D = new THREE.Vector3(mouse.x * 5, mouse.y * 5, 0);
+          const distanceToMouse = object.position.distanceTo(mousePosition3D);
+          
+          // Objects react to mouse when close
+          if (distanceToMouse < 2) {
+            // Move away from mouse
+            const direction = new THREE.Vector3().subVectors(object.position, mousePosition3D).normalize();
+            object.position.add(direction.multiplyScalar(0.05));
+            
+            // Glow effect - change material
+            const material = object.material as THREE.MeshPhongMaterial;
+            material.emissiveIntensity = 0.6;
+            material.shininess = 100;
+          } else {
+            // Floating movement with mouse influence
+            const sinOffset = Math.sin(elapsedTime * (object as any).floatSpeed + index);
+            const cosOffset = Math.cos(elapsedTime * (object as any).floatSpeed + index);
+            
+            object.position.x = (object as any).originalPosition.x + sinOffset * 0.5;
+            object.position.y = (object as any).originalPosition.y + cosOffset * 0.5;
+            
+            // Reset material
+            const material = object.material as THREE.MeshPhongMaterial;
+            material.emissiveIntensity = 0.2;
+            material.shininess = 30;
+          }
+        } else {
+          // Default floating movement
+          object.position.y += (object as any).floatSpeed * (object as any).floatDirection;
+          
+          // Change direction when reaching thresholds
+          if (object.position.y > 5 || object.position.y < -5) {
+            (object as any).floatDirection *= -1;
+          }
         }
       });
       
       renderer.render(scene, camera);
+      requestAnimationFrame(animate);
     };
     
     // Handle resize
@@ -153,6 +215,8 @@ export const FloatingObjects: React.FC<FloatingObjectsProps> = ({
     
     return () => {
       window.removeEventListener('resize', handleResize);
+      containerRef.current.removeEventListener('mousemove', handleMouseMove);
+      containerRef.current.removeEventListener('mouseleave', handleMouseLeave);
       
       if (containerRef.current && containerRef.current.contains(renderer.domElement)) {
         containerRef.current.removeChild(renderer.domElement);
@@ -171,7 +235,7 @@ export const FloatingObjects: React.FC<FloatingObjectsProps> = ({
   return (
     <div 
       ref={containerRef} 
-      className={`absolute inset-0 w-full h-full pointer-events-none ${className}`} 
+      className={`absolute inset-0 w-full h-full ${className}`} 
     />
   );
 };
