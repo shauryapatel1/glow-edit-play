@@ -4,10 +4,18 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Sparkles, Environment } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import * as THREE from 'three';
+
+// Define proper types for the component props
+interface AnimatedObjectProps {
+  position: [number, number, number]; // Properly typed as tuple with exactly 3 elements
+  size?: number;
+  color?: string;
+}
 
 // Animated 3D cube component
-const AnimatedCube = ({ position = [0, 0, 0], size = 1, color = '#ff3366' }) => {
-  const mesh = useRef(null);
+const AnimatedCube = ({ position = [0, 0, 0], size = 1, color = '#ff3366' }: AnimatedObjectProps) => {
+  const mesh = useRef<THREE.Mesh>(null);
   
   useFrame((state, delta) => {
     if (mesh.current) {
@@ -27,8 +35,8 @@ const AnimatedCube = ({ position = [0, 0, 0], size = 1, color = '#ff3366' }) => 
 };
 
 // Animated 3D sphere component
-const AnimatedSphere = ({ position = [0, 0, 0], size = 0.7, color = '#00E5FF' }) => {
-  const mesh = useRef(null);
+const AnimatedSphere = ({ position = [0, 0, 0], size = 0.7, color = '#00E5FF' }: AnimatedObjectProps) => {
+  const mesh = useRef<THREE.Mesh>(null);
   
   useFrame((state, delta) => {
     if (mesh.current) {
@@ -88,4 +96,3 @@ export function Hero3DAnimation({ className }: { className?: string }) {
     </motion.div>
   );
 }
-
