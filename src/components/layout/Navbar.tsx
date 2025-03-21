@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { AnimatedLogo } from '@/components/ui-custom/AnimatedLogo';
+import { Link } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,24 +27,20 @@ export const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold text-foreground">
-            GlowUp
-          </span>
-        </a>
+        <AnimatedLogo variant={isScrolled ? 'minimal' : 'default'} />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
-          <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">How It Works</a>
-          <a href="#pricing" className="text-foreground hover:text-primary transition-colors">Pricing</a>
-          <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</a>
+          <Link to="#features" className="text-foreground hover:text-primary transition-colors">Features</Link>
+          <Link to="#how-it-works" className="text-foreground hover:text-primary transition-colors">How It Works</Link>
+          <Link to="#pricing" className="text-foreground hover:text-primary transition-colors">Pricing</Link>
+          <Link to="#testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</Link>
         </nav>
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <button className="text-foreground hover:text-primary transition-colors">Log In</button>
-          <button className="btn-primary">Sign Up</button>
+          <Link to="/login" className="text-foreground hover:text-primary transition-colors">Log In</Link>
+          <Link to="/signup" className="btn-primary">Sign Up</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -65,14 +63,14 @@ export const Navbar: React.FC = () => {
         )}
       >
         <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          <a href="#features" className="py-2 text-foreground hover:text-primary transition-colors">Features</a>
-          <a href="#how-it-works" className="py-2 text-foreground hover:text-primary transition-colors">How It Works</a>
-          <a href="#pricing" className="py-2 text-foreground hover:text-primary transition-colors">Pricing</a>
-          <a href="#testimonials" className="py-2 text-foreground hover:text-primary transition-colors">Testimonials</a>
+          <Link to="#features" className="py-2 text-foreground hover:text-primary transition-colors">Features</Link>
+          <Link to="#how-it-works" className="py-2 text-foreground hover:text-primary transition-colors">How It Works</Link>
+          <Link to="#pricing" className="py-2 text-foreground hover:text-primary transition-colors">Pricing</Link>
+          <Link to="#testimonials" className="py-2 text-foreground hover:text-primary transition-colors">Testimonials</Link>
           
           <div className="pt-2 flex flex-col space-y-3">
-            <button className="py-2 text-foreground hover:text-primary transition-colors">Log In</button>
-            <button className="btn-primary">Sign Up</button>
+            <Link to="/login" className="py-2 text-foreground hover:text-primary transition-colors">Log In</Link>
+            <Link to="/signup" className="btn-primary">Sign Up</Link>
           </div>
         </div>
       </div>
