@@ -21,18 +21,18 @@ export const Footer: React.FC = () => {
           
           {/* Simplified Navigation Links */}
           <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+            <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
               About GlowUp
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+            </Link>
+            <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors text-sm">
               Pricing
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+            </Link>
+            <Link to="/support" className="text-muted-foreground hover:text-primary transition-colors text-sm">
               Support
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+            </Link>
+            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors text-sm">
               Terms & Privacy
-            </a>
+            </Link>
           </nav>
         </div>
         
