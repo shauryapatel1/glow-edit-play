@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    /* Minimalist dark theme */
+    /* Minimalist dark theme with new pink/orange accents */
     --background: 0 0% 5%; /* #0D0D0D - Very dark background */
     --foreground: 0 0% 90%; /* #E6E6E6 */
 
@@ -17,8 +17,8 @@
     --popover: 0 0% 10%; /* #1A1A1A */
     --popover-foreground: 0 0% 90%; /* #E6E6E6 */
 
-    /* Subtle blue as primary */
-    --primary: 210 90% 60%; /* #3A9CFF */
+    /* New pink/orange gradient primary */
+    --primary: 328 100% 54%; /* #FF1E8C - Pink from logo */
     --primary-foreground: 0 0% 100%; /* #FFFFFF */
 
     /* Dark gray as secondary */
@@ -29,8 +29,8 @@
     --muted: 0 0% 12%; /* #1F1F1F */
     --muted-foreground: 0 0% 60%; /* #999999 */
 
-    /* Subtle accent color */
-    --accent: 210 90% 60%; /* #3A9CFF */
+    /* Orange accent color from logo */
+    --accent: 36 100% 64%; /* #FFA83D - Orange from logo */
     --accent-foreground: 0 0% 100%; /* #FFFFFF */
 
     --destructive: 0 80% 50%; /* #FF4040 */
@@ -38,7 +38,7 @@
 
     --border: 0 0% 14%; /* #242424 */
     --input: 0 0% 14%; /* #242424 */
-    --ring: 210 90% 60%; /* #3A9CFF */
+    --ring: 328 100% 54%; /* #FF1E8C - Pink from logo */
   }
 }
 

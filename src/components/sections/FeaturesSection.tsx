@@ -71,7 +71,7 @@ export const FeaturesSection: React.FC = () => {
           <p className="text-muted-foreground">
             AI-driven editing with trend insights and collaborative tools to give your videos that extra edge.
           </p>
-          <Separator className="w-16 h-1 bg-primary mx-auto mt-6" />
+          <Separator className="w-16 h-1 bg-gradient-to-r from-[#FF1E8C] to-[#FFA83D] mx-auto mt-6" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

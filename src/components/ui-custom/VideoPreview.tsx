@@ -27,7 +27,7 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
     <div className={cn(
       "relative rounded-xl overflow-hidden border-2 group transition-all duration-300",
       aspectRatioClasses[aspectRatio],
-      glowEffect ? "border-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.5)] hover:shadow-[0_0_25px_rgba(0,229,255,0.8)]" : "border-[#1E1E1E]",
+      glowEffect ? "border-[#FF1E8C] shadow-[0_0_15px_rgba(255,30,140,0.5)] hover:shadow-[0_0_25px_rgba(255,30,140,0.8)]" : "border-[#1E1E1E]",
       "before:absolute before:inset-0 before:bg-[#121212]/30 before:z-10",
       className
     )}>
@@ -42,23 +42,23 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({
       <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/90 via-[#121212]/30 to-[#121212]/60 z-20 flex items-end">
         {overlayText && (
           <div className="p-6 text-white">
-            <p className="font-pixel text-lg text-[#E0E0E0] group-hover:text-[#00E5FF] transition-colors duration-300">{overlayText}</p>
+            <p className="font-pixel text-lg text-[#E0E0E0] group-hover:text-[#FF1E8C] transition-colors duration-300">{overlayText}</p>
           </div>
         )}
       </div>
       
       {/* Play Button with Neon Effect */}
       <div className="absolute inset-0 flex items-center justify-center z-30">
-        <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#121212]/50 border-2 border-[#FF3366] shadow-[0_0_15px_rgba(255,51,102,0.6)] group-hover:shadow-[0_0_25px_rgba(255,51,102,0.8)] group-hover:scale-110 transition-all duration-300">
-          <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-[#FF3366] border-b-[8px] border-b-transparent ml-1"></div>
+        <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#121212]/50 border-2 border-[#FF1E8C] shadow-[0_0_15px_rgba(255,30,140,0.6)] group-hover:shadow-[0_0_25px_rgba(255,30,140,0.8)] group-hover:scale-110 transition-all duration-300">
+          <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-[#FF1E8C] border-b-[8px] border-b-transparent ml-1"></div>
         </div>
       </div>
       
       {/* Neon Corner Accents */}
-      <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#76FF03] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
-      <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#76FF03] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
-      <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#76FF03] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
-      <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#76FF03] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+      <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#FFA83D] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+      <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#FFA83D] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+      <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#FFA83D] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
+      <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#FFA83D] z-30 opacity-80 group-hover:opacity-100 group-hover:w-8 group-hover:h-8 transition-all duration-300"></div>
     </div>
   );
 };
