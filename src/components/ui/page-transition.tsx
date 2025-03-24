@@ -32,7 +32,7 @@ export function PageTransition({
           animate="animate"
           exit="exit"
           transition={{
-            duration: 0.3,
+            duration: 0.4,
             ease: [0.22, 1, 0.36, 1],
           }}
         >

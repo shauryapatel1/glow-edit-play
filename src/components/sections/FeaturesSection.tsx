@@ -59,30 +59,6 @@ export const FeaturesSection: React.FC = () => {
       ),
       title: "Interactive Collaboration",
       description: "Collaborate live with your team to brainstorm, edit, and refine your content efficiently."
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect width="3" height="8" x="13" y="2" rx="1.5"/>
-          <path d="M19 8V7a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v1"/>
-          <rect width="20" height="14" x="2" y="8" rx="2"/>
-          <path d="M12 12h.01"/>
-        </svg>
-      ),
-      title: "Real-time Engagement Metrics",
-      description: "View performance analytics, success stories, and trending data in real-time with our dashboard."
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 12h-2l3.2-7.5"/>
-          <path d="M10 12H8l-3.2-7.5"/>
-          <path d="M3 16h18"/>
-          <path d="M18 18H6l-1 4h14l-1-4z"/>
-        </svg>
-      ),
-      title: "Viral-Ready Templates",
-      description: "Access a library of pre-designed templates proven to perform well, customizable to your style."
     }
   ];
 
@@ -98,7 +74,7 @@ export const FeaturesSection: React.FC = () => {
           <Separator className="w-16 h-1 bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}

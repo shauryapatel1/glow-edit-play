@@ -69,7 +69,7 @@ export const VideoEditorPreview: React.FC = () => {
                   ))}
                 </div>
                 
-                <div className="text-sunset-400 text-sm font-pixel mt-4 mb-3">Viral Effects</div>
+                <div className="text-sunset-400 text-sm font-pixel mt-4 mb-3">Effects</div>
                 <div className="grid grid-cols-2 gap-2">
                   {['Neon', 'Retro', 'Glitch', 'Zoom'].map((item, index) => (
                     <motion.div 
@@ -92,14 +92,6 @@ export const VideoEditorPreview: React.FC = () => {
                     className="w-full h-full"
                     overlayText=""
                   />
-                  
-                  {/* Trend Analysis Overlay */}
-                  <div className="absolute top-2 right-2 bg-sunset-400/20 backdrop-blur-sm p-2 rounded-md border border-sunset-400/50 text-white text-xs font-mono">
-                    <div className="flex items-center">
-                      <span className="text-sunset-400 mr-2">Trend Match:</span>
-                      <span className="font-bold">98%</span>
-                    </div>
-                  </div>
                   
                   {/* Video Controls */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 flex items-center justify-between">
