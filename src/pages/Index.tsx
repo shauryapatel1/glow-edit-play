@@ -9,6 +9,7 @@ import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { PageLoader } from '@/components/ui/page-loader';
+import { PageTransition } from '@/components/ui/page-transition';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,50 +26,45 @@ const Index = () => {
   return (
     <AnimatePresence mode="wait">
       {isLoading ? (
-        <PageLoader text="Initializing GlowUp" />
+        <PageLoader key="loader" text="Initializing GlowUp" />
       ) : (
-        <motion.div
-          key="content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="min-h-screen flex flex-col bg-background"
-        >
-          <Navbar />
-          
-          <main className="flex-1">
-            {/* Hero Section */}
-            <div className="relative">
-              <HeroWithObjects 
-                title="Your Gateway to Video Excellence"
-                subtitle="Professional video editing made simple"
-                ctaText="Start Free Trial"
-                secondaryCtaText="Watch Demo"
-              />
-            </div>
+        <PageTransition key="content">
+          <div className="min-h-screen flex flex-col bg-background">
+            <Navbar />
             
-            {/* Features Section */}
-            <div className="relative">
-              <FeaturesSection />
-            </div>
+            <main className="flex-1">
+              {/* Hero Section */}
+              <div className="relative">
+                <HeroWithObjects 
+                  title="Your Gateway to Video Excellence"
+                  subtitle="Professional video editing made simple"
+                  ctaText="Start Free Trial"
+                  secondaryCtaText="Watch Demo"
+                />
+              </div>
+              
+              {/* Features Section */}
+              <div className="relative">
+                <FeaturesSection />
+              </div>
+              
+              {/* How It Works Section */}
+              <div className="relative overflow-hidden">
+                <HowItWorksSection />
+              </div>
+              
+              {/* Testimonials Section */}
+              <div className="relative">
+                <TestimonialsSection />
+              </div>
+              
+              {/* CTA Section */}
+              <CtaSection />
+            </main>
             
-            {/* How It Works Section */}
-            <div className="relative overflow-hidden">
-              <HowItWorksSection />
-            </div>
-            
-            {/* Testimonials Section */}
-            <div className="relative">
-              <TestimonialsSection />
-            </div>
-            
-            {/* CTA Section */}
-            <CtaSection />
-          </main>
-          
-          <Footer />
-        </motion.div>
+            <Footer />
+          </div>
+        </PageTransition>
       )}
     </AnimatePresence>
   );

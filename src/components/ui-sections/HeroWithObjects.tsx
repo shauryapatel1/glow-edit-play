@@ -16,11 +16,36 @@ interface HeroWithObjectsProps {
 }
 
 export const HeroWithObjects: React.FC<HeroWithObjectsProps> = (props) => {
+  // Enhanced animation variants with better timing and easing
+  const containerVariants = {
+    initial: { opacity: 0 },
+    animate: { 
+      opacity: 1, 
+      transition: { 
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+        staggerChildren: 0.3
+      }
+    }
+  };
+  
+  const itemVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    }
+  };
+  
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      initial="initial"
+      animate="animate"
+      variants={containerVariants}
       className="relative z-10"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-background to-background/60" />
@@ -31,21 +56,17 @@ export const HeroWithObjects: React.FC<HeroWithObjectsProps> = (props) => {
         />
         
         <div className="flex">
-          {/* Left side: Interactive Scene */}
+          {/* Left side: Interactive Scene with improved animations */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
+            variants={itemVariants}
             className="absolute inset-0 -z-10 opacity-70 pointer-events-none"
           >
             <InteractiveScene />
           </motion.div>
           
-          {/* Right side: Hero3D Animation */}
+          {/* Right side: Hero3D Animation with improved animations */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            variants={itemVariants}
             className="absolute right-0 top-0 w-full h-full md:w-1/2 -z-10 opacity-80 pointer-events-none"
           >
             <Hero3DAnimation className="h-full" />
