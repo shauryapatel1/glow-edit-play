@@ -9,7 +9,7 @@ export interface SceneObjects {
 }
 
 export interface SceneProps {
-  onSceneCreated?: (objects: SceneObjects) => void;
+  onSceneCreated?: (objects: SceneObjects) => React.ReactNode;
   className?: string;
 }
 
