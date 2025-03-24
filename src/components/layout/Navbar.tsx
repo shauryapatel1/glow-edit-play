@@ -31,16 +31,16 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="#features" className="text-foreground hover:text-primary transition-colors">Features</Link>
-          <Link to="#how-it-works" className="text-foreground hover:text-primary transition-colors">How It Works</Link>
-          <Link to="#pricing" className="text-foreground hover:text-primary transition-colors">Pricing</Link>
-          <Link to="#testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</Link>
+          <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
+          <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">How It Works</a>
+          <a href="#pricing" className="text-foreground hover:text-primary transition-colors">Pricing</a>
+          <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</a>
         </nav>
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link to="/login" className="text-foreground hover:text-primary transition-colors">Log In</Link>
-          <Link to="/signup" className="btn-primary">Sign Up</Link>
+          <Link to="/about" className="text-foreground hover:text-primary transition-colors">Log In</Link>
+          <Link to="/about" className="btn-primary">Sign Up</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -63,14 +63,14 @@ export const Navbar: React.FC = () => {
         )}
       >
         <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          <Link to="#features" className="py-2 text-foreground hover:text-primary transition-colors">Features</Link>
-          <Link to="#how-it-works" className="py-2 text-foreground hover:text-primary transition-colors">How It Works</Link>
-          <Link to="#pricing" className="py-2 text-foreground hover:text-primary transition-colors">Pricing</Link>
-          <Link to="#testimonials" className="py-2 text-foreground hover:text-primary transition-colors">Testimonials</Link>
+          <a href="#features" className="py-2 text-foreground hover:text-primary transition-colors">Features</a>
+          <a href="#how-it-works" className="py-2 text-foreground hover:text-primary transition-colors">How It Works</a>
+          <a href="#pricing" className="py-2 text-foreground hover:text-primary transition-colors">Pricing</a>
+          <a href="#testimonials" className="py-2 text-foreground hover:text-primary transition-colors">Testimonials</a>
           
           <div className="pt-2 flex flex-col space-y-3">
-            <Link to="/login" className="py-2 text-foreground hover:text-primary transition-colors">Log In</Link>
-            <Link to="/signup" className="btn-primary">Sign Up</Link>
+            <Link to="/about" className="py-2 text-foreground hover:text-primary transition-colors">Log In</Link>
+            <Link to="/about" className="btn-primary">Sign Up</Link>
           </div>
         </div>
       </div>

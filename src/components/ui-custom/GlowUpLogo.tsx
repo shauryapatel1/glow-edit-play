@@ -68,72 +68,80 @@ export const GlowUpLogo: React.FC<GlowUpLogoProps> = ({
     },
   };
 
+  const content = (
+    <motion.div
+      className={cn(
+        "relative flex items-center",
+        variant === 'horizontal' ? 'flex-row' : 'flex-col',
+        className
+      )}
+      variants={logoVariants}
+      initial="initial"
+      animate="animate"
+    >
+      {/* Logo Bar Container */}
+      <div className={cn(
+        "relative flex items-center justify-center",
+        sizeClasses[size]
+      )}>
+        {/* First gradient bar */}
+        <motion.div
+          custom={0}
+          variants={barVariants}
+          className={cn(
+            "rounded-full bg-gradient-to-r from-[#FF1E8C] to-[#FFC2FF]",
+            size === 'sm' ? 'w-5 h-1.5' : size === 'md' ? 'w-7 h-2' : 'w-10 h-3',
+            "transform -rotate-12 -translate-x-1"
+          )}
+        />
+        
+        {/* Second gradient bar */}
+        <motion.div
+          custom={1}
+          variants={barVariants}
+          className={cn(
+            "rounded-full bg-gradient-to-r from-[#FF1E8C] via-[#FF7E5F] to-[#FFA83D]",
+            size === 'sm' ? 'w-5 h-1.5' : size === 'md' ? 'w-7 h-2' : 'w-10 h-3',
+            "transform rotate-12 translate-x-1"
+          )}
+        />
+      </div>
+      
+      {/* Logo Text */}
+      {variant !== 'minimal' && (
+        <motion.div
+          className={cn(
+            "font-bold tracking-wide",
+            size === 'sm' ? 'text-xl mt-1' : size === 'md' ? 'text-2xl mt-1.5' : 'text-4xl mt-2',
+            variant === 'horizontal' ? 'ml-3' : ''
+          )}
+          variants={textVariants}
+        >
+          GLOWUP
+        </motion.div>
+      )}
+      
+      {/* Optional tagline */}
+      {withTagline && (
+        <motion.div
+          className="text-xs text-muted-foreground mt-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          Enhancing Short Videos with AI
+        </motion.div>
+      )}
+    </motion.div>
+  );
+
+  if (onClick) {
+    return <div onClick={onClick}>{content}</div>;
+  }
+
   return (
-    <Link to="/" className="block" onClick={onClick}>
-      <motion.div
-        className={cn(
-          "relative flex items-center",
-          variant === 'horizontal' ? 'flex-row' : 'flex-col',
-          className
-        )}
-        variants={logoVariants}
-        initial="initial"
-        animate="animate"
-      >
-        {/* Logo Bar Container */}
-        <div className={cn(
-          "relative flex items-center justify-center",
-          sizeClasses[size]
-        )}>
-          {/* First gradient bar */}
-          <motion.div
-            custom={0}
-            variants={barVariants}
-            className={cn(
-              "rounded-full bg-gradient-to-r from-[#FF1E8C] to-[#FFC2FF]",
-              size === 'sm' ? 'w-5 h-1.5' : size === 'md' ? 'w-7 h-2' : 'w-10 h-3',
-              "transform -rotate-12 -translate-x-1"
-            )}
-          />
-          
-          {/* Second gradient bar */}
-          <motion.div
-            custom={1}
-            variants={barVariants}
-            className={cn(
-              "rounded-full bg-gradient-to-r from-[#FF1E8C] via-[#FF7E5F] to-[#FFA83D]",
-              size === 'sm' ? 'w-5 h-1.5' : size === 'md' ? 'w-7 h-2' : 'w-10 h-3',
-              "transform rotate-12 translate-x-1"
-            )}
-          />
-        </div>
-        
-        {/* Logo Text */}
-        {variant !== 'minimal' && (
-          <motion.div
-            className={cn(
-              "font-bold tracking-wide",
-              size === 'sm' ? 'text-xl mt-1' : size === 'md' ? 'text-2xl mt-1.5' : 'text-4xl mt-2',
-              variant === 'horizontal' ? 'ml-3' : ''
-            )}
-            variants={textVariants}
-          >
-            GLOWUP
-          </motion.div>
-        )}
-        
-        {/* Optional tagline */}
-        {withTagline && (
-          <motion.div
-            className="text-xs text-muted-foreground mt-1"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Enhancing Short Videos with AI
-          </motion.div>
-        )}
-      </motion.div>
+    <Link to="/">
+      {content}
     </Link>
   );
 };

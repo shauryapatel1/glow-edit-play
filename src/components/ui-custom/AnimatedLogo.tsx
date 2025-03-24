@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Link } from 'react-router-dom';
 import { GlowUpLogo } from './GlowUpLogo';
 
 interface AnimatedLogoProps {
@@ -18,12 +17,12 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
   onClick,
 }) => {
   return (
-    <Link to="/" className={cn("block", className)} onClick={onClick}>
+    <div className={cn("block", className)} onClick={onClick}>
       <GlowUpLogo
         size={size}
         variant={variant === 'minimal' ? 'minimal' : 'default'}
         withTagline={variant === 'default'}
       />
-    </Link>
+    </div>
   );
 };

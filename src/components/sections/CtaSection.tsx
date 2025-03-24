@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const CtaSection: React.FC = () => {
   return (
@@ -29,12 +30,12 @@ export const CtaSection: React.FC = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="btn-primary text-base font-medium">
+                <Link to="/about" className="btn-primary text-base font-medium">
                   Start Free Trial
-                </button>
-                <button className="btn-minimal text-base font-medium">
+                </Link>
+                <Link to="/about" className="btn-minimal text-base font-medium">
                   Schedule Demo
-                </button>
+                </Link>
               </div>
               
               <p className="mt-6 text-sm text-muted-foreground">

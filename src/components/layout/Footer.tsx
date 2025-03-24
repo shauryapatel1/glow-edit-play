@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
+import { GlowUpLogo } from '@/components/ui-custom/GlowUpLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ export const Footer: React.FC = () => {
           {/* Logo and copyright */}
           <div className="mb-6 md:mb-0">
             <div className="flex items-center mb-2">
-              <span className="font-medium text-xl">GlowUp</span>
+              <GlowUpLogo size="sm" variant="horizontal" />
             </div>
             <p className="text-muted-foreground text-sm">
               Transform your videos with AI-powered editing.

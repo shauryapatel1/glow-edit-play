@@ -2,6 +2,7 @@
 import React from 'react';
 import { PixelButton } from './PixelButton';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   title: string;
@@ -71,23 +72,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <PixelButton 
-              size="lg" 
-              variant="sunset"
-              onClick={onCtaClick}
-              className="animate-glow"
-            >
-              {ctaText}
-            </PixelButton>
-            
-            {secondaryCtaText && (
+            <Link to="/about">
               <PixelButton 
                 size="lg" 
-                variant="outline"
-                onClick={onSecondaryCtaClick}
+                variant="sunset"
+                className="animate-glow"
               >
-                {secondaryCtaText}
+                {ctaText}
               </PixelButton>
+            </Link>
+            
+            {secondaryCtaText && (
+              <Link to="/about">
+                <PixelButton 
+                  size="lg" 
+                  variant="outline"
+                >
+                  {secondaryCtaText}
+                </PixelButton>
+              </Link>
             )}
           </motion.div>
         </div>
