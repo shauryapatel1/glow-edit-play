@@ -30,10 +30,10 @@ export const CtaSection: React.FC = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/about" className="btn-primary text-base font-medium">
+                <Link to="/pricing" className="btn-primary text-base font-medium">
                   Start Free Trial
                 </Link>
-                <Link to="/about" className="btn-minimal text-base font-medium">
+                <Link to="/support" className="btn-minimal text-base font-medium">
                   Schedule Demo
                 </Link>
               </div>

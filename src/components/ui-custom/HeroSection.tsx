@@ -72,7 +72,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Link to="/about">
+            <Link to="/pricing">
               <PixelButton 
                 size="lg" 
                 variant="sunset"
@@ -83,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </Link>
             
             {secondaryCtaText && (
-              <Link to="/about">
+              <Link to="/loading-demo">
                 <PixelButton 
                   size="lg" 
                   variant="outline"

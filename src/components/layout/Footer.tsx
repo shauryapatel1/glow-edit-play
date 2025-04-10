@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
             </p>
           </div>
           
-          {/* Simplified Navigation Links */}
+          {/* Navigation Links */}
           <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
             <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
               About GlowUp
