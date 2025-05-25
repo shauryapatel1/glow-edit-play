@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,30 +28,6 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  useEffect(() => {
-    // Add message event listener to inspect postMessage calls
-    const messageHandler = (event: MessageEvent) => {
-      // Only handle messages intended for lovable.dev
-      if (event.origin === 'https://lovable.dev') {
-        try {
-          // Clone the data before sending to ensure it's serializable
-          const cloneableData = JSON.parse(JSON.stringify(event.data));
-          event.source?.postMessage(cloneableData, event.origin);
-          event.preventDefault(); // Prevent original message from being sent
-        } catch (error) {
-          console.warn('Failed to clone message data:', error);
-          // Allow original message to proceed if our intervention fails
-        }
-      }
-    };
-
-    window.addEventListener('message', messageHandler);
-
-    return () => {
-      window.removeEventListener('message', messageHandler);
-    };
-  }, []);
-
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
