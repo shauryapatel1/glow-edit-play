@@ -1,8 +1,7 @@
-# Welcome to your Lovable project
+# Welcome to GlowUp - Your Gateway to Video Excellence
 
-## Project info
-
-**URL**: https://lovable.dev/projects/0dfc8884-c3e8-42d2-9565-2a520aff64f4
+## About GlowUp
+GlowUp is your gateway to video excellence. It's an innovative video editing tool designed to make professional video editing simple and accessible for everyone. Whether you're creating content for social media, marketing campaigns, or personal projects, GlowUp provides the features you need to make your videos shine.
 
 ## How can I edit this code?
 
@@ -10,7 +9,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0dfc8884-c3e8-42d2-9565-2a520aff64f4) and start prompting.
+Simply visit Lovable and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
@@ -52,7 +51,7 @@ npm run dev
 
 ## What technologies are used for this project?
 
-This project is built with .
+This project (GlowUp) is built with .
 
 - Vite
 - TypeScript
@@ -62,7 +61,7 @@ This project is built with .
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/0dfc8884-c3e8-42d2-9565-2a520aff64f4) and click on Share -> Publish.
+Simply open Lovable and click on Share -> Publish.
 
 ## I want to use a custom domain - is that possible?
 
